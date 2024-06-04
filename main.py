@@ -76,17 +76,18 @@ while True:
                                 print("\n")
                                 
                     elif option1_1 == 3:
-                        print("-- Modufica detalles de una tesis --")
+                        print("-- Modifica detalles de una tesis --")
                         id_tes = int(input("Identificador de la tesis: "))
                         for ident in listaTesis:
                             if ident.id_tesis == id_tes:
-                                nuevo_autor = str(input("Nuevo autor: "))
+                                nuevo_autor = str(input("Nombre del nuevo autor: "))
                                 nueva_institucion = str(input("Nueva institucion: "))
-                                nueva_fecha_investigacion = str(input("Nuevo autor: "))
-                                nuevo_autor = str(input("Nuevo autor: "))
-                                nuevo_autor = str(input("Nuevo autor: "))
-                                nuevo_autor = str(input("Nuevo autor: "))
-                                ident.modificarDatos()
+                                nueva_fecha_investigacion = str(input("Nueva fecha investigacion: "))
+                                nueva_fecha_presentacion = str(input("Nueva fecha de presentacion: "))
+                                nuevo_campo = str(input("Nuevo campo: "))
+                                nuevo_estado = str(input("Nuevo estado: "))
+                                nuevo_num_paginas = int(input("Nuevo numero de paginas: "))
+                                ident.modificarDatos(nuevo_autor, nueva_institucion, nueva_fecha_investigacion, nuevo_campo, nuevo_estado, nuevo_num_paginas)
                                 break
                             else:
                                 print("La tesis solicitada no está en el sistema")
@@ -136,7 +137,7 @@ while True:
                                 print("El articulo solicitado no está en el sistema")
 
                     elif option1_2 == 3:
-                        print("-- Modificar un articulo cientifico --")
+                        print("-- Modifica un articulo cientifico --")
                         id_doi = int(input("Identificador DOI del articulo cientifico: "))
                         for ident in listaArtiCientificos:
                             if ident.doi == id_doi:

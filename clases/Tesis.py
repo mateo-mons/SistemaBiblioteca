@@ -67,7 +67,7 @@ class Tesis:
 
     def modificarDatos(self, autor=None, institucion=None, fecha_investigacion=None, fecha_presentacion=None, campo=None, estado=None, paginas=None):
         if autor:
-            self.autor(autor)
+            self.autor.setNombre(autor)
         if institucion:
             self.setInstitucion(institucion)
         if fecha_investigacion:
