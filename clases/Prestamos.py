@@ -10,6 +10,9 @@ class Prestamo:
         self.fecha_prestamo = fecha_prestamo
         self.fecha_entrega = fecha_entrega
 
+        if dias_prestamo > 3:
+            raise ValueError("Los días de préstamo deben ser menores o iguales a 3.")
+
     # Representación de la clase Prestamo en forma de cadena
 
     def __str__(self):
@@ -50,12 +53,12 @@ class Prestamo:
         self.dias_prestamo = dias_prestamo
     
     def setFechaPrestamo(self, fecha_prestamo):
-        self.fecha_prestamo = fecha_prestamo
+        self.fecha_prestamo = datetime.strptime(fecha_prestamo, "%Y-%m-%d")
     
     def setFechaEntrega(self, fecha_entrega):
-        self.fecha_entrega = fecha_entrega
+        self.fecha_entrega = datetime.strptime(fecha_entrega, "%Y-%m-%d")
 
     #-------------------------------------------------------------- operaciones --------------------------------------------------------------
 
-    def calcularFechaEntrega(self):
-        self.fecha_entrega = self.fecha_prestamo + timedelta(days=self.dias_prestamo)
+    def calcular_fecha_entrega(self):
+        return self.fecha_prestamo + timedelta(days=self.dias_prestamo)
