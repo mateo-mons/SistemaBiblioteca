@@ -378,7 +378,7 @@ while True:
                         copia_encontrada = False
                         for ident in listaCopias:
                             if ident.identificador == id_copia:
-                                print(ident)
+                                ident.verCopia()
                                 copia_encontrada = True
                                 break
                             else:

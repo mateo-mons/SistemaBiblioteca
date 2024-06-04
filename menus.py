@@ -72,8 +72,9 @@ def menu_admin_bibliotecario():
     print("-- Bibliotecario --")
     print("1. Registrar bibliotecario")
     print("2. Buscar bibliotecario")
-    print("3. Eliminar bibliotecario")
-    print("4. Volver")
+    print("3. Modificar bibliotecario")
+    print("4. Eliminar bibliotecario")
+    print("5. Volver")
 
 # 2.2 #
 def menu_admin_lector():
