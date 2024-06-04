@@ -104,8 +104,7 @@ def menu_admi_multas():
     print("-- Multas --")
     print("1. Asignar multa")
     print("2. Levantar multa")
-    print("3. Consultar estado de multa")
-    print("4. Volver")
+    print("3. Volver")
 
 
 '''

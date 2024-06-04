@@ -80,6 +80,12 @@ while True:
                         id_tes = int(input("Identificador de la tesis: "))
                         for ident in listaTesis:
                             if ident.id_tesis == id_tes:
+                                nuevo_autor = str(input("Nuevo autor: "))
+                                nueva_institucion = str(input("Nueva institucion: "))
+                                nueva_fecha_investigacion = str(input("Nuevo autor: "))
+                                nuevo_autor = str(input("Nuevo autor: "))
+                                nuevo_autor = str(input("Nuevo autor: "))
+                                nuevo_autor = str(input("Nuevo autor: "))
                                 ident.modificarDatos()
                                 break
                             else:
@@ -332,7 +338,7 @@ while True:
                             
                             dias_prestamo = int(input("Ingrese los días de préstamo (máximo 3): "))
                             fecha_prestamo = datetime.now().strftime("%Y-%m-%d")
-                            prestamo = Prestamo(len(prestamos) + 1, id_libro, id_lector, dias_prestamo, fecha_prestamo)
+                            prestamo = Prestamo(len(listaPrestamos) + 1, id_libro, id_lector, dias_prestamo, fecha_prestamo)
                             listaPrestamos.append(prestamo)
                             lector.agregarLibroPrestado(libro)
                             libro.setEstado("prestado")
@@ -382,14 +388,14 @@ while True:
                     if option3_2 == 1:
 
                         id_lector = input("Ingrese el ID del lector: ")
-                        lector = next((l for l in lectores if l.getId() == id_lector), None)
+                        lector = next((l for l in listaLectores if l.getId() == id_lector), None)
                         if not lector:
                             print("Lector no encontrado.")
                             break
                         
                         monto = float(input("Ingrese el monto de la multa: "))
                         multa = Multa(lector, monto, "activa")
-                        multas.append(multa)
+                        listaMultas.append(multa)
                         lector.agregarMulta(multa)
                         print("Multa aplicada exitosamente.")
 
@@ -409,12 +415,6 @@ while True:
                         
                         lector.levantarMulta(multa)
                         print("Multa levantada exitosamente.")
-
-                        else:
-                            print("Préstamo devuelto exitosamente sin multa.")
-
-                        lector.removerLibroPrestado(libro)
-                        libro.setEstado("disponible")
 
                     elif option3_2 == 3:
                         print("...")
