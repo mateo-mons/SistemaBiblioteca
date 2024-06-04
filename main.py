@@ -82,12 +82,24 @@ autor10.libros.append(libro10)
 
 autor1 = Autor(5, "Rafael Camilo Lopez Gomez", "Colombia", "04-07-1987")
 tesis1 = Tesis(10, autor1, "UTP", "23-06-2023", "05-12-2023", "Ingenieria", "Disponible", 10)
-
 copia1 = Copia(1, "Disponible", "9788478884455")
-listaCopias.append(copia1)
 
+listaCopias.append(copia1)
 listaAutores.append(autor1)
 listaTesis.append(tesis1)
+
+articC1 = ArticuloCientifico("Redaccion a la fisica cuantica", "2354", "Editorial planeta", "23-4-2023", "3 semanas", "Vol 1", "Fisica cuantica", "Disponible")
+listaArtiCientificos.append(articC1)
+
+bibliotecario1 = Bibliotecario("Alejandro Magno", 20, "323432023", "Cra 32 # 433-543")
+listaBibliotecarios.append(bibliotecario1)
+
+lector1 = Lector("Carlos Dario", 10, "321323443", "Calle falsa # 123", "Normal")
+lector2 = Lector("Jose Manuel", 11, "321323443", "Calle real # 123", "Sancionado")
+lector3 = Lector("Manuela Garcia", 12, "321323443", "Calle quien sabe # 123", "Suspendido")
+listaLectores.append(lector1)
+listaLectores.append(lector2)
+listaLectores.append(lector3)
 
 print(tesis1.verTesis())
 print("--------------------------------")
@@ -571,7 +583,7 @@ while True:
                                 print("El lector solicitado no está en el sistema")
 
                     elif option2_2 == 4:
-                        id_lector = int(input("Cedula del lector a habilitar: "))
+                        id_lector = int(input("Identificador del lector a habilitar: "))
                         for ident in listaLectores:
                             if ident.id == id_lector:
                                 ident.setEstado("Habilitado")
@@ -581,7 +593,7 @@ while True:
                                 print("Lector no encontrado")
 
                     elif option2_2 == 5:
-                        id_lector = int(input("Cedula del lector a inhabilitar: "))
+                        id_lector = int(input("Identificador del lector a inhabilitar: "))
                         for ident in listaLectores:
                             if ident.id == id_lector:
                                 ident.setEstado("Inhabilitado")
@@ -698,7 +710,7 @@ while True:
 
                     elif option3_2 == 2:
 
-                        id_lector = input("Ingrese el ID del lector: ")
+                        id_lector = int(input("Ingrese el ID del lector: "))
                         lector = next((l for l in listaLectores if l.getId() == id_lector), None)
                         if not lector:
                             print("Lector no encontrado.")
