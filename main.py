@@ -524,7 +524,7 @@ while True:
                                 #return
                             
                             id_libro = input("Ingrese el ID del libro: ")
-                            libro = next((l for l in listaLibros if l.getId() == id_libro), None)
+                            libro = next((l for l in listaLibros if l.getIsbn() == id_libro), None)
                             if not libro:
                                 print("Libro no encontrado.")
                                 #return
@@ -535,7 +535,7 @@ while True:
                             
                             dias_prestamo = int(input("Ingrese los días de préstamo (máximo 3): "))
                             fecha_prestamo = datetime.now().strftime("%Y-%m-%d")
-                            prestamo = Prestamo(len(prestamos) + 1, id_libro, id_lector, dias_prestamo, fecha_prestamo)
+                            prestamo = Prestamo(len(prestamo) + 1, id_libro, id_lector, dias_prestamo, fecha_prestamo)
                             listaPrestamos.append(prestamo)
                             lector.agregarLibroPrestado(libro)
                             libro.setEstado("prestado")
@@ -550,7 +550,7 @@ while True:
                             #return
                         
                         id_libro = input("Ingrese el ID del libro: ")
-                        libro = next((l for l in listaLibros if l.getId() == id_libro), None)
+                        libro = next((l for l in listaLibros if l.getIsbn() == id_libro), None)
                         if not libro:
                             print("Libro no encontrado.")
                             #return
@@ -561,12 +561,12 @@ while True:
                             #return
                         
                         fecha_devolucion = datetime.now().strftime("%Y-%m-%d")
-                        multa = Multa(len(multas) + 1, prestamo)
+                        multa = Multa(len(multa) + 1, prestamo)
                         multa.generar_multa(fecha_devolucion)
                         listaMultas.append(multa)
                         
                         if multa.estado == "activa":
-                            print(f"Préstamo devuelto con retraso. Multa generada por {multa.dias_retraso} días de retraso. Valor de la multa: {multa.calcular_multa()}")
+                            print(f"Préstamo devuelto con retraso. Multa generada por {multa.dias_retraso} días de retraso. Valor de la multa: {multa.dias_retraso * 3000}")
 
                         else:
                             print("Préstamo devuelto exitosamente sin multa.")
