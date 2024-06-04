@@ -23,8 +23,8 @@ listaTesis = []
 listaBibliotecarios = []
 
 # OBJETOS QUEMADOS PARA PRUEBAS #
-autor1 = Autor("Rafael Camilo Lopez Gomez", "Colombia", "04-07-1987")
-tesis1 = Tesis(autor1, "UTP", "23-06-2023", "05-12-2023", "Ingenieria", "Disponible", 10)
+autor1 = Autor(5, "Rafael Camilo Lopez Gomez", "Colombia", "04-07-1987")
+tesis1 = Tesis(10, autor1, "UTP", "23-06-2023", "05-12-2023", "Ingenieria", "Disponible", 10)
 
 listaAutores.append(autor1)
 listaTesis.append(tesis1)
