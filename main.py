@@ -83,6 +83,9 @@ autor10.libros.append(libro10)
 autor1 = Autor(5, "Rafael Camilo Lopez Gomez", "Colombia", "04-07-1987")
 tesis1 = Tesis(10, autor1, "UTP", "23-06-2023", "05-12-2023", "Ingenieria", "Disponible", 10)
 
+copia1 = Copia(1, "Disponible", "9788478884455")
+listaCopias.append(copia1)
+
 listaAutores.append(autor1)
 listaTesis.append(tesis1)
 
@@ -289,30 +292,37 @@ while True:
                         print("Modificar libro")
                         print("1. Por ISBN")
                         print("2. Por título")
-                        print("3. Por autor")
                         opcion_busqueda = int(input("Opción: "))
                         if opcion_busqueda == 1:
                             isbn = input("ISBN: ")
                             libro = next((libro for libro in listaLibros if libro.getIsbn() == isbn), None)
                             if libro is not None:
-                                libro.modificarDatos()
+                                nuevo_genero = input("Nuevo género: ")
+                                nuevo_edicion = input("Nueva edición: ")
+                                nuevo_ano_publicacion = int(input("Nuevo año de publicación: "))
+                                nueva_editorial = input("Nueva editorial: ")
+                                nuevo_estado = input("Nuevo estado: ")
+                                nuevo_idioma = input("Nuevo idioma: ")
+                                nuevo_num_copias = int(input("Nuevo número de copias: "))
+                                libro.modificarDatos(nuevo_genero, nuevo_edicion, nuevo_ano_publicacion, nueva_editorial, nuevo_estado, nuevo_idioma, nuevo_num_copias)                           
+
                             else:
                                 print("Libro no encontrado")
                         elif opcion_busqueda == 2:
                             titulo = input("Título: ")
                             libro = next((libro for libro in listaLibros if libro.getTitulo() == titulo), None)
                             if libro is not None:
-                                libro.modificarDatos()
+                                nuevo_genero = input("Nuevo género: ")
+                                nuevo_edicion = input("Nueva edición: ")
+                                nuevo_ano_publicacion = int(input("Nuevo año de publicación: "))
+                                nueva_editorial = input("Nueva editorial: ")
+                                nuevo_estado = input("Nuevo estado: ")
+                                nuevo_idioma = input("Nuevo idioma: ")
+                                nuevo_num_copias = int(input("Nuevo número de copias: "))
+                                libro.modificarDatos(nuevo_genero, nuevo_edicion, nuevo_ano_publicacion, nueva_editorial, nuevo_estado, nuevo_idioma, nuevo_num_copias)                           
+
                             else:
-                                print("Libro no encontrado")
-                        elif opcion_busqueda == 3:
-                            autor = input("Autor: ")
-                            libros_autor = [libro for libro in listaLibros if autor in [autor.getNombre() for autor in libro.getAutores()]]
-                            if len(libros_autor) > 0:
-                                for libro in listaLibros:
-                                    libro.modificarDatos()
-                            else:
-                                print("Libro no encontrado")                                                                         
+                                print("Libro no encontrado")                                                                  
                     
                     elif option1_3 == 4:
                         print("\n")
@@ -360,26 +370,32 @@ while True:
                         id_copia = int(input("Ingresa identificador de la copia: "))
                         estado = str(input("Ingresa el estado de la copia: "))
                         isbn = int(input("Ingresa el ISBN del libro: "))
-                        copia = Copia(id_copia, id_libro, estado)
+                        copia = Copia(id_copia, estado, isbn)
                         listaCopias.append(copia)
                     elif option1_4 == 2:
                         print("-- Busca copias --")
                         id_copia = int(input("Identificador de la copia: "))
+                        copia_encontrada = False
                         for ident in listaCopias:
-                            if ident.id_copia == id_copia:
-                                ident.verCopia()
+                            if ident.identificador == id_copia:
+                                print(ident)
+                                copia_encontrada = True
                                 break
                             else:
                                 print("La copia solicitada no está en el sistema")
                     elif option1_4 == 3:
-                        print("-- Modifica detalles de copia --")
+                        print("-- Eliminar la copia --")
                         id_copia = int(input("Identificador de la copia: "))
+                        copia_encontrada = False
                         for ident in listaCopias:
-                            if ident.id_copia == id_copia:
-                                ident.modificarDatos()
+                            if ident.identificador == id_copia:
+                                listaCopias.remove(ident)
+                                copia_encontrada = True
+                                print("Copia eliminada")
                                 break
                             else:
-                                print("La copia solicitada no está en el sistema")
+                                print("La copia solicitada no está en el sistema")                       
+
                     elif option1_4 == 4:
                         print("...")
                         break
