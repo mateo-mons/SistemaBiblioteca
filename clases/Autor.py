@@ -7,8 +7,8 @@ class Autor:
         self.libros = []
 
     # Representación de la clase Autor en forma de cadena
-    def __str__(self):
-        return f"Nombre del autor: {self.nombre}, Nacionalidad: {self.nacionalidad}, Fecha de nacimiento: {self.fecha_nac}, Cantidad de libros: {len(self.libros)}"
+    def verAutor(self):
+        return f"Nombre del autor: {self.nombre}\nNacionalidad: {self.nacionalidad}\nFecha de nacimiento: {self.fecha_nac}\nCantidad de libros: {len(self.libros)}"
 
     # --------------------------------------------------------------- Getters --------------------------------------------------------------
 

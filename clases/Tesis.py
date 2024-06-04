@@ -1,3 +1,5 @@
+from clases.Autor import *
+
 class Tesis:
 
     def __init__(self, autor, institucion, fecha_investigacion, fecha_presentacion, campo, estado, paginas):
@@ -11,8 +13,8 @@ class Tesis:
 
     # Representación de la clase Tesis en forma de cadena
 
-    def __str__(self):
-        return f"Autor: {self.autor}, Institucion: {self.institucion}, Fecha Investigacion: {self.fecha_investigacion}, Fecha Presentacion: {self.fecha_presentacion}, Campo: {self.campo}, Estado: {self.estado}, Numero paginas: {self.paginas}"
+    def verTesis(self):
+        return f"Autor: {self.autor.getNombre()}\nInstitucion: {self.institucion}\nFecha de investigacion: {self.fecha_investigacion}\nFecha de presentacion: {self.fecha_presentacion}\nCampo: {self.campo}\nEstado: {self.estado}\nNumero paginas: {self.paginas}"
     
     #--------------------------------------------------------------- getter --------------------------------------------------------------
  
