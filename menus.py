@@ -97,15 +97,15 @@ def menu_admi_transacciones():
     print("-- Transacciones --")
     print("1. Solicitud de prestamo")
     print("2. Devolucion de prestamo")
-    print("3. Pago de multa")
-    print("4. Volver")
+    print("3. Volver")
 
 # 3.2 #
 def menu_admi_multas():
     print("-- Multas --")
     print("1. Asignar multa")
-    print("2. Consultar estado de multa")
-    print("3. Volver")
+    print("2. Levantar multa")
+    print("3. Consultar estado de multa")
+    print("4. Volver")
 
 
 '''

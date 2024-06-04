@@ -318,17 +318,17 @@ while True:
                             lector = next((l for l in listaLectores if l.getId() == id_lector), None)
                             if not lector:
                                 print("Lector no encontrado.")
-                                #return
+                                break
                             
                             id_libro = input("Ingrese el ID del libro: ")
                             libro = next((l for l in listaLibros if l.getId() == id_libro), None)
                             if not libro:
                                 print("Libro no encontrado.")
-                                #return
+                                break
                             
                             if libro.getEstado() != "disponible":
                                 print("Libro no disponible para préstamo.")
-                                #return
+                                break
                             
                             dias_prestamo = int(input("Ingrese los días de préstamo (máximo 3): "))
                             fecha_prestamo = datetime.now().strftime("%Y-%m-%d")
@@ -344,36 +344,25 @@ while True:
                         lector = next((l for l in listaLectores if l.getId() == id_lector), None)
                         if not lector:
                             print("Lector no encontrado.")
-                            #return
+                            break
                         
                         id_libro = input("Ingrese el ID del libro: ")
                         libro = next((l for l in listaLibros if l.getId() == id_libro), None)
                         if not libro:
                             print("Libro no encontrado.")
-                            #return
+                            break
                         
                         prestamo = next((p for p in listaPrestamos if p.getIdLector() == id_lector and p.getIdLibro() == id_libro), None)
                         if not prestamo:
                             print("Préstamo no encontrado.")
-                            #return
+                            break
                         
                         fecha_devolucion = datetime.now().strftime("%Y-%m-%d")
                         multa = Multa(len(multas) + 1, prestamo)
                         multa.generar_multa(fecha_devolucion)
                         listaMultas.append(multa)
-                        
-                        if multa.estado == "activa":
-                            print(f"Préstamo devuelto con retraso. Multa generada por {multa.dias_retraso} días de retraso. Valor de la multa: {multa.calcular_multa()}")
-
-                        else:
-                            print("Préstamo devuelto exitosamente sin multa.")
-
-                        lector.removerLibroPrestado(libro)
-                        libro.setEstado("disponible")
-                        
+                                                
                     elif option3_1 == 3:
-                        pass
-                    elif option3_1 == 4:
                         print("...")
                         break
                     else:
@@ -387,7 +376,14 @@ while True:
                     if option3_2 == 1:
                         pass
                     elif option3_2 == 2:
-                        pass
+                        if multa.estado == "activa":
+                            print(f"Préstamo devuelto con retraso. Multa generada por {multa.dias_retraso} días de retraso. Valor de la multa: {multa.calcular_multa()}")
+
+                        else:
+                            print("Préstamo devuelto exitosamente sin multa.")
+
+                        lector.removerLibroPrestado(libro)
+                        libro.setEstado("disponible")
                     elif option3_2 == 3:
                         print("...")
                         break
