@@ -2,7 +2,8 @@ from clases.Autor import *
 
 class Tesis:
 
-    def __init__(self, autor, institucion, fecha_investigacion, fecha_presentacion, campo, estado, paginas):
+    def __init__(self, id_tesis, autor, institucion, fecha_investigacion, fecha_presentacion, campo, estado, paginas):
+        self.id_tesis = id_tesis
         self.autor = autor
         self.institucion = institucion
         self.fecha_investigacion = fecha_investigacion
@@ -63,3 +64,19 @@ class Tesis:
         self.paginas = paginas
 
     #-------------------------------------------------------------- operaciones --------------------------------------------------------------
+
+    def modificarDatos(self, autor=None, institucion=None, fecha_investigacion=None, fecha_presentacion=None, campo=None, estado=None, paginas=None):
+        if autor:
+            self.autor(autor)
+        if institucion:
+            self.setInstitucion(institucion)
+        if fecha_investigacion:
+            self.setFechaInvestigacion(fecha_investigacion)
+        if fecha_presentacion:
+            self.setFechaPresentacion(fecha_presentacion)
+        if campo:
+            self.setCampo(campo)
+        if estado:
+            self.setEstado(estado)
+        if paginas:
+            self.setPaginas(paginas)

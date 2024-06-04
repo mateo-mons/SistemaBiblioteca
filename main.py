@@ -11,23 +11,23 @@ from menus import *
 import os
 
 # LISTAS PARA ALMACENAR INFORMACION DE OBJETOS #
-artiCientificos = []
-autores = []
-categorias = []
-copias = []
-lectores = []
-libros = []
-multas = []
-prestamos = []
-tesis = []
-bibliotecarios = []
+listaArtiCientificos = []
+listaAutores = []
+listaCategorias = []
+listaCopias = []
+listaLectores = []
+listaLibros = []
+listaMultas = []
+listaPrestamos = []
+listaTesis = []
+listaBibliotecarios = []
 
 # OBJETOS QUEMADOS PARA PRUEBAS #
 autor1 = Autor("Rafael Camilo Lopez Gomez", "Colombia", "04-07-1987")
 tesis1 = Tesis(autor1, "UTP", "23-06-2023", "05-12-2023", "Ingenieria", "Disponible", 10)
 
-autores.append(autor1)
-tesis.append(tesis1)
+listaAutores.append(autor1)
+listaTesis.append(tesis1)
 
 print(tesis1.verTesis())
 print("--------------------------------")
@@ -51,13 +51,45 @@ while True:
                     option1_1 = int(input("Opcion: "))
 
                     if option1_1 == 1:
-                        pass
+                        print("-- Registra tesis --")
+                        id_tesis = int(input("Ingresa identificador de la tesis: "))
+                        autor = str(input("Ingresa nombre de autor(es): "))
+                        institucion = str(input("Ingresa la institucion de estudios: "))
+                        fecha_investigacion = str(input("Ingresa la fecha de investigacion: "))
+                        fecha_presentacion = str(input("Ingresa la fecha de presentacion: "))
+                        campo = str(input("Ingresa el campo de estudios: "))
+                        estado = str(input("Ingresa el estado: "))
+                        num_paginas = int(input("Ingresa el numero de paginas: "))
+                        tesis = Tesis(id_tesis, autor, institucion, fecha_investigacion, fecha_presentacion, campo, estado, num_paginas)
+                        listaTesis.append(tesis)
+
                     elif option1_1 == 2:
-                        pass
+                        print("-- Busca tesis --")
+                        id_tes = int(input("Identificador de la tesis: "))
+                        for ident in listaTesis:
+                            if ident.id_tesis == id_tes:
+                                ident.verTesis()
+                                break
+                            else:
+                                print("La tesis solicitada no está en el sistema")
                     elif option1_1 == 3:
-                        pass
+                        print("-- Modufica detalles de una tesis --")
+                        id_tes = int(input("Identificador de la tesis: "))
+                        for ident in listaTesis:
+                            if ident.id_tesis == id_tes:
+                                ident.modificarDatos()
+                                break
+                            else:
+                                print("La tesis solicitada no está en el sistema")
                     elif option1_1 == 4:
-                        pass
+                        print("-- Elimina una tesis --")
+                        id_tes = int(input("Identificador de la tesis: "))
+                        for ident in listaTesis:
+                            if ident.id_tesis == id_tes:
+                                listaTesis.remove(ident)
+                                break
+                            else:
+                                print("La tesis solicitada no está en el sistema")
                     elif option1_1 == 5:
                         print("...")
                         break
@@ -72,7 +104,14 @@ while True:
                     if option1_2 == 1:
                         pass
                     elif option1_2 == 2:
-                        pass
+                        print("-- Busca tesis --")
+                        id_tes = int(input("Identificador de la tesis: "))
+                        for ident in listaTesis:
+                            if ident.id_tesis == id_tes:
+                                ident.verTesis()
+                                break
+                            else:
+                                print("La tesis solicitada no está en el sistema")
                     elif option1_2 == 3:
                         pass
                     elif option1_2 == 4:
