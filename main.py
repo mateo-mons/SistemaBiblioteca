@@ -23,6 +23,62 @@ listaTesis = []
 listaBibliotecarios = []
 
 # OBJETOS QUEMADOS PARA PRUEBAS #
+
+autor2 = Autor(1,"J.K. Rowling", "Británica", "31 de julio de 1965")
+listaAutores.append(autor2)
+libro2 = Libro("Harry Potter y la piedra filosofal", "9788478884455", "Fantasía", "Edición especial", 1997, "Salamandra", "Usado", "Español", 50, [autor2])
+listaLibros.append(libro2)
+autor2.libros.append(libro2)
+
+autor3 = Autor(2,"Gabriel García Márquez", "Colombiana", "6 de marzo de 1927")
+listaAutores.append(autor3)
+libro3 = Libro("Cien años de soledad", "9788437615030", "Realismo mágico", "Edición conmemorativa", 1967, "Diana", "Nuevo", "Español", 80, [autor3])
+listaLibros.append(libro3)
+autor3.libros.append(libro3)
+
+autor4 = Autor(3,"George Orwell", "Británica", "25 de junio de 1903")
+listaAutores.append(autor4)
+libro4 = Libro("1984", "9780141036144", "Distopía", "Reedición", 1949, "Penguin Books", "Usado", "Inglés", 60, [autor4])
+listaLibros.append(libro4)
+autor4.libros.append(libro4)
+
+autor5 = Autor(4,"Jane Austen", "Británica", "16 de diciembre de 1775")
+listaAutores.append(autor5)
+libro5 = Libro("Orgullo y prejuicio", "9788497940821", "Novela romántica", "Edición ilustrada", 1813, "Alba Editorial", "Nuevo", "Español", 70, [autor5])
+listaLibros.append(libro5)
+autor5.libros.append(libro5)
+
+autor6 = Autor(5,"Miguel de Cervantes", "Española", "29 de septiembre de 1547")
+listaAutores.append(autor6)
+libro6 = Libro("Don Quijote de la Mancha", "9788420412146", "Novela picaresca", "Edición crítica", 1605, "Alfaguara", "Usado", "Español", 90, [autor6])
+listaLibros.append(libro6)
+autor6.libros.append(libro6)
+
+autor7 = Autor(6,"Herman Melville", "Estadounidense", "1 de agosto de 1819")
+listaAutores.append(autor7)
+libro7 = Libro("Moby Dick", "9788491050364", "Novela de aventuras", "Edición de lujo", 1851, "Alba Editorial", "Nuevo", "Español", 40, [autor7])
+listaLibros.append(libro7)
+autor7.libros.append(libro7)
+
+autor8 = Autor(7,"Antoine de Saint-Exupéry", "Francés", "29 de junio de 1900")
+listaAutores.append(autor8)
+libro8 = Libro("El principito", "9780547964069", "Literatura infantil", "Edición de colección", 1943, "Houghton Mifflin Harcourt", "Usado", "Español", 120, [autor8])
+listaLibros.append(libro8)
+autor8.libros.append(libro8)
+
+autor9 = Autor(8,"Mark Twain", "Estadounidense", "30 de noviembre de 1835")
+listaAutores.append(autor9)
+libro9 = Libro("Las aventuras de Tom Sawyer", "9788491815234", "Novela juvenil", "Edición especial", 1876, "Penguin Clásicos", "Nuevo", "Español", 55, [autor9])
+listaLibros.append(libro9)
+autor9.libros.append(libro9)
+
+autor10 = Autor(9,"Franz Kafka", "Austrohúngaro", "3 de julio de 1883")
+listaAutores.append(autor10)
+
+libro10 = Libro("La metamorfosis", "9788483461646", "Ficción absurda", "Edición anotada", 1915, "Editorial Losada", "Nuevo", "Español", 65, [autor10])
+listaLibros.append(libro10)
+autor10.libros.append(libro10)
+
 autor1 = Autor(5, "Rafael Camilo Lopez Gomez", "Colombia", "04-07-1987")
 tesis1 = Tesis(10, autor1, "UTP", "23-06-2023", "05-12-2023", "Ingenieria", "Disponible", 10)
 
@@ -161,13 +217,125 @@ while True:
                     option1_3 = int(input("Opcion: "))
 
                     if option1_3 == 1:
-                        pass
+                        titulo = input("Titulo: ")
+                        isbn = input("ISBN: ")
+                        genero = input("Genero: ")
+                        edicion = input("Edicion: ")
+                        ano_publicacion = int(input("Año de publicacion: "))
+                        editorial = input("Editorial: ")
+                        estado = input("Estado: ")
+                        nombre_autor = input("Autor: ")
+                        idioma = input("Idioma: ")
+                        num_copias = int(input("Numero de copias: "))
+                        
+                        autor_instancia = next((autor for autor in listaAutores if autor.getNombre() == nombre_autor), None)
+                        if autor_instancia is None:
+                            print(f"Autor {nombre_autor} no encontrado.")
+                            print("Desea añadir el autor? (S/N)")
+                            respuesta = input()
+                            if respuesta == "S" or respuesta == "s":
+                                nombre_autor = input("Nombre del autor: ")
+                                nacionalidad = input("Nacionalidad: ")
+                                fecha_nacimiento = input("Fecha de nacimiento: ")
+                                autor_instancia = Autor(nombre_autor, nacionalidad, fecha_nacimiento)
+                                listaAutores.append(autor_instancia)
+                            else:
+                                continue               
+                        
+                        libro = Libro(titulo, isbn, genero, edicion, ano_publicacion, editorial, estado, idioma, num_copias, [autor_instancia])
+                        listaLibros.append(libro)
+                        autor_instancia.listaLibros.append(libro)
+                        print(libro)
+                
                     elif option1_3 == 2:
-                        pass
+                        print("\n")
+                        print("Buscar libro")
+                        print("1. Por ISBN")
+                        print("2. Por título")
+                        print("3. Por autor")
+                        opcion_busqueda = int(input("Opción: "))
+                        if opcion_busqueda == 1:
+                            isbn = input("ISBN: ")
+                            libro = next((libro for libro in listaLibros if libro.getIsbn() == isbn), None)
+                            if libro is not None:
+                                libro.verLibro()
+                            else:
+                                print("Libro no encontrado")
+                        elif opcion_busqueda == 2:
+                            titulo = input("Título: ")
+                            libro = next((libro for libro in listaLibros if libro.getTitulo() == titulo), None)
+                            if libro is not None:
+                                libro.verLibro()
+                            else:
+                                print("Libro no encontrado")
+                        elif opcion_busqueda == 3:
+                            autor = input("Autor: ")
+                            libros_autor = [libro for libro in listaLibros if autor in [autor.getNombre() for autor in libro.getAutores()]]
+                            if len(libros_autor) > 0:
+                                for libro in listaLibros:
+                                    libro.verLibro()
+                            else:
+                                print("Libro no encontrado")                       
                     elif option1_3 == 3:
-                        pass
+                        print("\n")
+                        print("Modificar libro")
+                        print("1. Por ISBN")
+                        print("2. Por título")
+                        print("3. Por autor")
+                        opcion_busqueda = int(input("Opción: "))
+                        if opcion_busqueda == 1:
+                            isbn = input("ISBN: ")
+                            libro = next((libro for libro in listaLibros if libro.getIsbn() == isbn), None)
+                            if libro is not None:
+                                libro.modificarDatos()
+                            else:
+                                print("Libro no encontrado")
+                        elif opcion_busqueda == 2:
+                            titulo = input("Título: ")
+                            libro = next((libro for libro in listaLibros if libro.getTitulo() == titulo), None)
+                            if libro is not None:
+                                libro.modificarDatos()
+                            else:
+                                print("Libro no encontrado")
+                        elif opcion_busqueda == 3:
+                            autor = input("Autor: ")
+                            libros_autor = [libro for libro in listaLibros if autor in [autor.getNombre() for autor in libro.getAutores()]]
+                            if len(libros_autor) > 0:
+                                for libro in listaLibros:
+                                    libro.modificarDatos()
+                            else:
+                                print("Libro no encontrado")                                                                         
+                    
                     elif option1_3 == 4:
-                        pass
+                        print("\n")
+                        print("Inhabilitar libro")
+                        print("1. Por ISBN")
+                        print("2. Por título")
+                        print("3. Por autor")
+                        opcion_busqueda = int(input("Opción: "))
+                        if opcion_busqueda == 1:
+                            isbn = input("ISBN: ")
+                            libro = next((libro for libro in listaLibros if libro.getIsbn() == isbn), None)
+                            if libro is not None:
+                                libro.setEstado("Inhabilitado")
+                            else:
+                                print("Libro no encontrado")
+                        elif opcion_busqueda == 2:
+                            titulo = input("Título: ")
+                            libro = next((libro for libro in listaLibros if libro.getTitulo() == titulo), None)
+                            if libro is not None:
+                                libro.setEstado("Inhabilitado")
+                            else:
+                                print("Libro no encontrado")
+                        elif opcion_busqueda == 3:
+                            autor = input("Autor: ")
+                            libros_autor = [libro for libro in listaLibros if autor in [autor.getNombre() for autor in libro.getAutores()]]
+                            if len(libros_autor) > 0:
+                                for libro in listaLibros:
+                                    libro.setEstado("Inhabilitado")
+                            else:
+                                print("Libro no encontrado")
+
                     elif option1_3 == 5:
                         print("...")
                         break
@@ -180,11 +348,30 @@ while True:
                     option1_4 = int(input("Opcion: "))
 
                     if option1_4 == 1:
-                        pass
+                        print("-- Registra copias --")
+                        id_copia = int(input("Ingresa identificador de la copia: "))
+                        estado = str(input("Ingresa el estado de la copia: "))
+                        isbn = int(input("Ingresa el ISBN del libro: "))
+                        copia = Copia(id_copia, id_libro, estado)
+                        listaCopias.append(copia)
                     elif option1_4 == 2:
-                        pass
+                        print("-- Busca copias --")
+                        id_copia = int(input("Identificador de la copia: "))
+                        for ident in listaCopias:
+                            if ident.id_copia == id_copia:
+                                ident.verCopia()
+                                break
+                            else:
+                                print("La copia solicitada no está en el sistema")
                     elif option1_4 == 3:
-                        pass
+                        print("-- Modifica detalles de copia --")
+                        id_copia = int(input("Identificador de la copia: "))
+                        for ident in listaCopias:
+                            if ident.id_copia == id_copia:
+                                ident.modificarDatos()
+                                break
+                            else:
+                                print("La copia solicitada no está en el sistema")
                     elif option1_4 == 4:
                         print("...")
                         break
