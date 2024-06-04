@@ -102,7 +102,7 @@ def menu_admi_transacciones():
 
 # 3.2 #
 def menu_admi_multas():
-    print("-- Muñtas --")
+    print("-- Multas --")
     print("1. Asignar multa")
     print("2. Consultar estado de multa")
     print("3. Volver")
