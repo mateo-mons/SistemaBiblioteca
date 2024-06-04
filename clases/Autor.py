@@ -11,7 +11,7 @@ class Autor:
 
     # Representación de la clase Autor en forma de cadena
     def verAutor(self):
-        return f"Nombre del autor: {self.nombre}\nNacionalidad: {self.nacionalidad}\nFecha de nacimiento: {self.fecha_nac}\nCantidad de libros: {len(self.libros)}"
+        print(f"Nombre del autor: {self.nombre}\nNacionalidad: {self.nacionalidad}\nFecha de nacimiento: {self.fecha_nac}\nCantidad de libros: {len(self.libros)}")
 
     # --------------------------------------------------------------- Getters --------------------------------------------------------------
 

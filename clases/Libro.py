@@ -14,9 +14,9 @@ class Libro:
 
     # Representación de la clase Libro en forma de cadena
 
-    def __str__(self):
+    def verLibro(self):
         autores_str = ', '.join([autor.getNombre() for autor in self.autores])
-        return f"Titulo del libro: {self.titulo}, ISBN: {self.isbn}, Género: {self.genero}, Edición: {self.edicion}, Año: {self.ano_publicacion}, Editorial: {self.editorial}, Estado: {self.estado}, Idioma: {self.idioma}, Numero de copias: {self.num_copias}, Autores: {autores_str}"
+        print(f"Titulo del libro: {self.titulo}, ISBN: {self.isbn}, Género: {self.genero}, Edición: {self.edicion}, Año: {self.ano_publicacion}, Editorial: {self.editorial}, Estado: {self.estado}, Idioma: {self.idioma}, Numero de copias: {self.num_copias}, Autores: {autores_str}")
 
     # --------------------------------------------------------------- Getters --------------------------------------------------------------
 
