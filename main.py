@@ -358,13 +358,19 @@ while True:
                             break
                         
                         fecha_devolucion = datetime.now().strftime("%Y-%m-%d")
-                        multa = Multa(len(multas) + 1, prestamo)
+                        multa = Multa(len(multa) + 1, prestamo)
                         multa.generar_multa(fecha_devolucion)
                         listaMultas.append(multa)
+                        
+                        if multa.estado == "activa":
+                            print(f"Préstamo devuelto con retraso. Multa generada por {multa.dias_retraso} días de retraso. Valor de la multa: {multa.calcular_multa()}")
+
+                        else:
+                            print("Préstamo devuelto exitosamente sin multa.")
+
+                        lector.removerLibroPrestado(libro)
+                        libro.setEstado("disponible")
                                                 
-                    elif option3_1 == 3:
-                        print("...")
-                        break
                     else:
                         print("Opcion invalida, intente nuevamente")
 
@@ -374,21 +380,48 @@ while True:
                     option3_2 = int(input("Opcion: "))
 
                     if option3_2 == 1:
-                        pass
+
+                        id_lector = input("Ingrese el ID del lector: ")
+                        lector = next((l for l in lectores if l.getId() == id_lector), None)
+                        if not lector:
+                            print("Lector no encontrado.")
+                            break
+                        
+                        monto = float(input("Ingrese el monto de la multa: "))
+                        multa = Multa(lector, monto, "activa")
+                        multas.append(multa)
+                        lector.agregarMulta(multa)
+                        print("Multa aplicada exitosamente.")
+
                     elif option3_2 == 2:
-                        if multa.estado == "activa":
-                            print(f"Préstamo devuelto con retraso. Multa generada por {multa.dias_retraso} días de retraso. Valor de la multa: {multa.calcular_multa()}")
+
+                        id_lector = input("Ingrese el ID del lector: ")
+                        lector = next((l for l in listaLectores if l.getId() == id_lector), None)
+                        if not lector:
+                            print("Lector no encontrado.")
+                            break
+                        
+                        monto = float(input("Ingrese el monto de la multa a levantar: "))
+                        multa = next((m for m in listaMultas if m.getLector() == lector and m.getMonto() == monto and m.getEstado() == "activa"), None)
+                        if not multa:
+                            print("Multa no encontrada.")
+                            break
+                        
+                        lector.levantarMulta(multa)
+                        print("Multa levantada exitosamente.")
 
                         else:
                             print("Préstamo devuelto exitosamente sin multa.")
 
                         lector.removerLibroPrestado(libro)
                         libro.setEstado("disponible")
+
                     elif option3_2 == 3:
                         print("...")
                         break
                     else:
                         print("Opcion invalida, intente nuevamente")
+
             elif option3 == 3:
                 print("...")
                 break
