@@ -30,7 +30,7 @@ def menu_admin_arti_cient():
     print("-- Articulos Cientificos --")
     print("1. Registrar articulo cientifico")
     print("2. Buscar articulo cientifico")
-    print("3. Modificar articulo cientifico")
+    print("3. Modificar detalles articulo cientifico")
     print("4. Eliminar articulo cientifico")
     print("5. Volver")
 
@@ -48,7 +48,7 @@ def menu_admin_copias():
     print("-- Copias --")
     print("1. Registrar copia")
     print("2. Buscar copia")
-    print("3. Eliminar tesis")
+    print("3. Eliminar copia")
     print("4. Volver")
 
 # 1.5 #
@@ -73,15 +73,34 @@ def menu_admin_bibliotecario():
 # 2.2 #
 def menu_admin_lector():
     print("-- Lector --")
-    print("1. Registrar Lector")
-    print("2. Buscar Lector")
-    print("3. Modificar Lector ")
-    print("4. Habilitar Lector")
-    print("5. Inhabilitar Lector")
+    print("1. Registrar lector")
+    print("2. Buscar lector")
+    print("3. Modificar lector ")
+    print("4. Habilitar lector")
+    print("5. Inhabilitar lector")
     print("6. Volver")
 
+# 3 #
 def menu_administracion_prestamos():
-    pass
+    print("-- Prestamos y transacciones --")
+    print("1. Realizar transaccion")
+    print("2. Administrar de multas")
+    print("3. Volver")
+
+# 3.1 #
+def menu_admi_transacciones():
+    print("-- Transacciones --")
+    print("1. Solicitud de prestamo")
+    print("2. Devolucion de prestamo")
+    print("3. Pago de multa")
+    print("4. Volver")
+
+# 3.2 #
+def menu_admi_multas():
+    print("-- Muñtas --")
+    print("1. Asignar multa")
+    print("2. Consultar estado de multa")
+    print("3. Volver")
 
 
 '''
