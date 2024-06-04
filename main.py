@@ -22,17 +22,6 @@ listaPrestamos = []
 listaTesis = []
 listaBibliotecarios = []
 
-# OBJETOS QUEMADOS PARA PRUEBAS #
-autor1 = Autor("Rafael Camilo Lopez Gomez", "Colombia", "04-07-1987")
-tesis1 = Tesis(autor1, "UTP", "23-06-2023", "05-12-2023", "Ingenieria", "Disponible", 10)
-
-listaAutores.append(autor1)
-listaTesis.append(tesis1)
-
-print(tesis1.verTesis())
-print("--------------------------------")
-print(tesis1.autor.verAutor())
-
 
 # MAIN PROGRAM #
 while True:
@@ -313,25 +302,25 @@ while True:
                     if option3_1 == 1:
                         
                             id_lector = input("Ingrese el ID del lector: ")
-                            lector = next((l for l in lectores if l.getId() == id_lector), None)
+                            lector = next((l for l in listaLectores if l.getId() == id_lector), None)
                             if not lector:
                                 print("Lector no encontrado.")
-                                return
+                                break
                             
                             id_libro = input("Ingrese el ID del libro: ")
-                            libro = next((l for l in libros if l.getId() == id_libro), None)
+                            libro = next((l for l in listaLibros if l.getId() == id_libro), None)
                             if not libro:
                                 print("Libro no encontrado.")
-                                return
+                                break
                             
                             if libro.getEstado() != "disponible":
                                 print("Libro no disponible para préstamo.")
-                                return
+                                break
                             
                             dias_prestamo = int(input("Ingrese los días de préstamo (máximo 3): "))
                             fecha_prestamo = datetime.now().strftime("%Y-%m-%d")
-                            prestamo = Prestamo(len(prestamos) + 1, id_libro, id_lector, dias_prestamo, fecha_prestamo)
-                            prestamos.append(prestamo)
+                            prestamo = Prestamo(len(prestamo) + 1, id_libro, id_lector, dias_prestamo, fecha_prestamo)
+                            listaPrestamos.append(prestamo)
                             lector.agregarLibroPrestado(libro)
                             libro.setEstado("prestado")
                             print(f"Préstamo registrado exitosamente. Fecha de devolución: {prestamo.getFechaEntrega().strftime('%Y-%m-%d')}")
@@ -339,26 +328,26 @@ while True:
                     elif option3_1 == 2:
 
                         id_lector = input("Ingrese el ID del lector: ")
-                        lector = next((l for l in lectores if l.getId() == id_lector), None)
+                        lector = next((l for l in listaLectores if l.getId() == id_lector), None)
                         if not lector:
                             print("Lector no encontrado.")
-                            return
+                            break
                         
                         id_libro = input("Ingrese el ID del libro: ")
-                        libro = next((l for l in libros if l.getId() == id_libro), None)
+                        libro = next((l for l in listaLibros if l.getId() == id_libro), None)
                         if not libro:
                             print("Libro no encontrado.")
-                            return
+                            break
                         
-                        prestamo = next((p for p in prestamos if p.getIdLector() == id_lector and p.getIdLibro() == id_libro), None)
+                        prestamo = next((p for p in listaPrestamos if p.getIdLector() == id_lector and p.getIdLibro() == id_libro), None)
                         if not prestamo:
                             print("Préstamo no encontrado.")
-                            return
+                            break
                         
                         fecha_devolucion = datetime.now().strftime("%Y-%m-%d")
-                        multa = Multa(len(multas) + 1, prestamo)
+                        multa = Multa(len(multa) + 1, prestamo)
                         multa.generar_multa(fecha_devolucion)
-                        multas.append(multa)
+                        listaMultas.append(multa)
                         
                         if multa.estado == "activa":
                             print(f"Préstamo devuelto con retraso. Multa generada por {multa.dias_retraso} días de retraso. Valor de la multa: {multa.calcular_multa()}")
