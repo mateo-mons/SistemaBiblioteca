@@ -16,7 +16,7 @@ class Libro:
 
     def verLibro(self):
         autores_str = ', '.join([autor.getNombre() for autor in self.autores])
-        print(f"Titulo del libro: {self.titulo}, ISBN: {self.isbn}, Género: {self.genero}, Edición: {self.edicion}, Año: {self.ano_publicacion}, Editorial: {self.editorial}, Estado: {self.estado}, Idioma: {self.idioma}, Numero de copias: {self.num_copias}, Autores: {autores_str}")
+        print(f"Titulo del libro: {self.titulo}\nISBN: {self.isbn}\nGénero: {self.genero}\nEdición: {self.edicion}\nAño: {self.ano_publicacion}\nEditorial: {self.editorial}\nEstado: {self.estado}\nIdioma: {self.idioma}\nNumero de copias: {self.num_copias}\nAutores: {autores_str}")
 
     # --------------------------------------------------------------- Getters --------------------------------------------------------------
 

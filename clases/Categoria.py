@@ -8,8 +8,8 @@ class Categoria:
 
     # Representación de la clase Categoria en forma de cadena
 
-    def __str__(self):
-        return f"Categoria: {self.nombre}, Id: {self.id}, Descripcion: {self.descripcion}, Subcategoria: {self.subcategoria}"
+    def verCategoria(self):
+        print(f"Categoria: {self.nombre}\nId: {self.id}\nDescripcion: {self.descripcion}\nSubcategoria: {self.subcategoria}")
     
     #--------------------------------------------------------------- getter --------------------------------------------------------------
  

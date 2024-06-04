@@ -7,8 +7,8 @@ class Copia:
 
     # Representación de la clase Copias en forma de cadena
 
-    def __str__(self):
-        return f"Identificador: {self.identificador}, Estado: {self.estado}, ISBN: {self.isbn}"
+    def verCopia(self):
+        print(f"Identificador: {self.identificador}\nEstado: {self.estado}\nISBN: {self.isbn}")
     
     #--------------------------------------------------------------- getter --------------------------------------------------------------
  

@@ -11,8 +11,8 @@ class Lector:
 
     # Representación de la clase Libro en forma de cadena
 
-    def __str__(self):
-        return f"Nombre: {self.nombre}, ID: {self.id}, Teléfono: {self.telefono}, Dirección: {self.direccion}, Estado: {self.estado}, Libros prestados: {len(self.libros_prestados)}, Multas: {len(self.multas)}"
+    def verLector(self):
+        print(f"Nombre: {self.nombre}\nID: {self.id}\nTeléfono: {self.telefono}\nDirección: {self.direccion}\nEstado: {self.estado}\nLibros prestados: {len(self.libros_prestados)}\nMultas: {len(self.multas)}")
 
     # --------------------------------------------------------------- Getters --------------------------------------------------------------
 
@@ -77,3 +77,10 @@ class Lector:
         if multa in self.multas:
             multa.levantarMulta()
             self.multas.remove(multa)
+
+    def modificarDatos(self, nombre, id, telefono, direccion, estado):
+        self.nombre = nombre
+        self.id = id
+        self.telefono = telefono
+        self.direccion = direccion
+        self.estado = estado

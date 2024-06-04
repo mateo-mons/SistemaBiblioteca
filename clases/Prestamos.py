@@ -15,8 +15,8 @@ class Prestamo:
 
     # Representación de la clase Prestamo en forma de cadena
 
-    def __str__(self):
-        return f"ID prestamo: {self.id_prestamo}, ID libro: {self.id_libro}, ID lector: {self.id_lector}, Dias prestamo: {self.dias_prestamo}, Fecha del prestamo: {self.fecha_prestamo}, Fecha de entrega: {self.fecha_entrega}"
+    def verPrestamo(self):
+        print(f"ID prestamo: {self.id_prestamo}\nID libro: {self.id_libro}\nID lector: {self.id_lector}\nDias prestamo: {self.dias_prestamo}\nFecha del prestamo: {self.fecha_prestamo}\nFecha de entrega: {self.fecha_entrega}")
     
     #--------------------------------------------------------------- getter --------------------------------------------------------------
  

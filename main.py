@@ -1,5 +1,6 @@
 from clases.ArticuloCientifico import *
 from clases.Autor import *
+from clases.Bibliotecario import *
 from clases.Categoria import *
 from clases.Copias import *
 from clases.Lector import *
@@ -457,12 +458,55 @@ while True:
                     option2_1 = int(input("Opcion: "))
 
                     if option2_1 == 1:
-                        pass
+                        nombre = str(input("Nombre del Bibliotecario: "))
+                        id = int(input("ID: "))
+                        telefono = int(input("Teléfono: "))
+                        direccion = str(input("Dirección: "))
+                        bibliotecario = Bibliotecario(nombre, id, telefono, direccion)
+                        listaBibliotecarios.append(bibliotecario)
+                        print("Bibliotecario agregado")
+                        
                     elif option2_1 == 2:
-                        pass
+                        print("-- Busca Bibliotecario --")
+                        
+                        id_biblio = int(input("Identificador Bibliotecario: "))
+                        for ident in listaBibliotecarios:
+                            if ident.id == id_biblio:
+                                ident.verBibliotecario()
+                                break
+                            else:
+                                print("El Bibliotecario solicitado no está en el sistema")
+
                     elif option2_1 == 3:
-                        pass
+                        print("-- Modifica detalles de un bibliotecario --")
+                        id_biblio = int(input("Identificador del bibliotecario a modificar: "))
+                        for ident in listaBibliotecarios:
+                            if ident.id == id_biblio:
+                                nombre = str(input("Nombre del bibliotecario: "))
+                                id = int(input("ID: "))
+                                telefono = int(input("Teléfono: "))
+                                direccion = str(input("Dirección: "))
+                                bibliotecario = Bibliotecario(nombre, id, telefono, direccion)
+                                ident.modificarDatos(nombre, id, telefono, direccion)
+                                print("Bibliotecario modificado con éxito!")   
+                                break
+                            else:
+                                print("El bibliotecario solicitado no está en el sistema")
+                        
                     elif option2_1 == 4:
+                        print("-- Elimina un bibliotecario --")
+                        id_biblio = int(input("Identificador bibliotecario: "))
+                        for ident in listaBibliotecarios:
+                            found = False
+                            if ident.id == id_biblio:
+                                listaBibliotecarios.remove(ident)
+                                print("El bibliotecario se ha eliminadod del sistema")
+                                found  = True
+                                break
+                        if found  == False:
+                                print("El bibliotecario solicitado no está en el sistema")
+
+                    elif option2_1 == 5:
                         print("...")
                         break
                     else:
@@ -474,15 +518,62 @@ while True:
                     option2_2 = int(input("Opcion: "))
 
                     if option2_2 == 1:
-                        pass
+                        nombre = str(input("Nombre del lector: "))
+                        id = int(input("ID: "))
+                        telefono = int(input("Teléfono: "))
+                        direccion = str(input("Dirección: "))
+                        estado = str(input("Estado: "))
+                        lector = Lector(nombre, id, telefono, direccion, estado)
+                        listaLectores.append(lector)
+                        print("Lector agregado")
+                    
                     elif option2_2 == 2:
-                        pass
+                        print("-- Busca Lector --")
+                        id_lector = int(input("Identificador del lector: "))
+                        for ident in listaLectores:
+                            if ident.id == id_lector:
+                                ident.verLector()
+                                break
+                            else:
+                                print("El lector solicitado no está en el sistema")
+
                     elif option2_2 == 3:
-                        pass
+                        print("-- Modifica detalles de un lector --")
+                        id_lector = int(input("Identificador del lector a modificar: "))
+                        for ident in listaLectores:
+                            if ident.id == id_lector:
+                                nombre = str(input("Nombre del lector: "))
+                                id = int(input("ID: "))
+                                telefono = int(input("Teléfono: "))
+                                direccion = str(input("Dirección: "))
+                                estado = str(input("Estado: "))
+                                lector = Lector(nombre, id, telefono, direccion, estado)
+                                ident.modificarDatos(nombre, id, telefono, direccion, estado)
+                                print("Lector modificado con éxito!")   
+                                break
+                            else:
+                                print("El lector solicitado no está en el sistema")
+
                     elif option2_2 == 4:
-                        pass
+                        id_lector = int(input("Cedula del lector a habilitar: "))
+                        for ident in listaLectores:
+                            if ident.id == id_lector:
+                                ident.setEstado("Habilitado")
+                                print("Lector habilitado con éxito!")
+                                break
+                            else:
+                                print("Lector no encontrado")
+
                     elif option2_2 == 5:
-                        pass
+                        id_lector = int(input("Cedula del lector a inhabilitar: "))
+                        for ident in listaLectores:
+                            if ident.id == id_lector:
+                                ident.setEstado("Inhabilitado")
+                                print("Lector inhabilitado con éxito!")
+                                break
+                            else:
+                                print("Lector no encontrado")
+
                     elif option2_2 == 6:
                         print("...")
                         break
@@ -494,6 +585,8 @@ while True:
                         break
             else:
                 print("Opcion invalida, intente nuevamente")
+
+
 
 
     elif main_option == 3:
