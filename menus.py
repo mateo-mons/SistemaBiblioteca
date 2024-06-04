@@ -53,7 +53,12 @@ def menu_admin_copias():
 
 # 1.5 #
 def menu_admin_info_autores():
-    pass
+    print("-- Autores --")
+    print("1. Registrar autor")
+    print("2. Buscar autor")
+    print("3. Modificar detalles de autor")
+    print("4. Asociar libro")
+    print("5. Volver")
 
 # 2 #
 def menu_administracion_usuarios():

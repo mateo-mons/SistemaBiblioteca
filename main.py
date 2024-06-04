@@ -72,6 +72,7 @@ while True:
                                 break
                             else:
                                 print("La tesis solicitada no está en el sistema")
+
                     elif option1_1 == 3:
                         print("-- Modufica detalles de una tesis --")
                         id_tes = int(input("Identificador de la tesis: "))
@@ -81,6 +82,7 @@ while True:
                                 break
                             else:
                                 print("La tesis solicitada no está en el sistema")
+
                     elif option1_1 == 4:
                         print("-- Elimina una tesis --")
                         id_tes = int(input("Identificador de la tesis: "))
@@ -90,6 +92,7 @@ while True:
                                 break
                             else:
                                 print("La tesis solicitada no está en el sistema")
+
                     elif option1_1 == 5:
                         print("...")
                         break
@@ -102,20 +105,48 @@ while True:
                     option1_2 = int(input("Opcion: "))
 
                     if option1_2 == 1:
-                        pass
+                        print("-- Registra articulo cientifico --")
+                        titulo = str(input("Ingresa el titulo del articulo: "))
+                        doi = int(input("Ingresa el identificador DOI del articulo: "))
+                        editor = str(input("Ingresa el editor del articulo: "))
+                        fecha_publicacion = str(input("Ingresa la fecha de publicacion del articulo: "))
+                        periodicidad = str(input("Ingresa la periodicidad del articulo: "))
+                        volumen = str(input("Ingresa el volumen del articulo: "))
+                        campo_interes = str(input("Ingresa el campo de interes del articulo: "))
+                        estado = str(input("Ingresa estado del articulo: "))
+                        artCienti = ArticuloCientifico(id_tesis, autor, institucion, fecha_investigacion, fecha_presentacion, campo, estado, num_paginas)
+                        listaArtiCientificos.append(artCienti)
+
                     elif option1_2 == 2:
-                        print("-- Busca tesis --")
-                        id_tes = int(input("Identificador de la tesis: "))
-                        for ident in listaTesis:
-                            if ident.id_tesis == id_tes:
-                                ident.verTesis()
+                        print("-- Busca articulo cientifico --")
+                        id_doi = int(input("Identificador DOI del articulo cientifico: "))
+                        for ident in listaArtiCientificos:
+                            if ident.doi == id_doi:
+                                ident.verArticuloCientifico()
                                 break
                             else:
-                                print("La tesis solicitada no está en el sistema")
+                                print("El articulo solicitado no está en el sistema")
+
                     elif option1_2 == 3:
-                        pass
+                        print("-- Modificar un articulo cientifico --")
+                        id_doi = int(input("Identificador DOI del articulo cientifico: "))
+                        for ident in listaArtiCientificos:
+                            if ident.doi == id_doi:
+                                ident.modificarDatos()
+                                break
+                            else:
+                                print("El articulo solicitado no está en el sistema")
+
                     elif option1_2 == 4:
-                        pass
+                        print("-- Elimina un articulo cientifico --")
+                        id_doi = int(input("Identificador DOI del articulo cientifico: "))
+                        for ident in listaArtiCientificos:
+                            if ident.doi == id_doi:
+                                listaArtiCientificos.remove(ident)
+                                break
+                            else:
+                                print("El articulo solicitado no está en el sistema")
+
                     elif option1_2 == 5:
                         print("...")
                         break
@@ -164,13 +195,49 @@ while True:
                     option1_5 = int(input("Opcion: "))
 
                     if option1_5 == 1:
-                        pass
+                        print("-- Registra autor --")
+                        id_autor = int(input("Ingresa identificador del autor: "))
+                        nombre = str(input("Ingresa nombre del autor: "))
+                        nacionalidad = str(input("Ingresa la nacionalidad del autor: "))
+                        fecha_nacimiento = str(input("Ingresa la fecha de nacimiento del autor: "))
+                        autor = Autor(id_autor, nombre, nacionalidad, fecha_nacimiento)
+                        listaAutores.append(autor)
+
                     elif option1_5 == 2:
-                        pass
+                        print("-- Busca autor --")
+                        id_autor = int(input("Identificador del autor: "))
+                        for ident in listaAutores:
+                            if ident.id_autor == id_autor:
+                                ident.verAutor()
+                                break
+                            else:
+                                print("El autor solicitado no está en el sistema")
+
                     elif option1_5 == 3:
-                        pass
+                        print("-- Modifica detalles de autor --")
+                        id_autor = int(input("Identificador del autor: "))
+                        for ident in listaAutores:
+                            if ident.id_autor == id_autor:
+                                ident.modificarDatos()
+                                break
+                            else:
+                                print("El autor solicitado no está en el sistema")
+
                     elif option1_5 == 4:
-                        pass
+                        print("-- Asociar libro a autor --")
+                        id_autor = int(input("Identificador del autor: "))
+                        for ident1 in listaAutores:
+                            if ident1.id_autor == id_autor:
+                                id_prod = int(input("Identificador de producto: "))
+                                for ident2 in listaArtiCientificos or ident2 in listaLibros or ident2 in listaTesis:
+                                    if ident2.doi == id_prod or ident2.isbn == id_prod or ident2.id_tesis == id_prod:
+                                        ident1.agregarLibro(ident2)
+                                    else:
+                                        print("El producto solicitado no está en el sistema")
+                                break
+                            else:
+                                print("El autor solicitado no está en el sistema")
+
                     elif option1_5 == 5:
                         print("...")
                         break

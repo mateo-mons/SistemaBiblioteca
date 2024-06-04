@@ -1,6 +1,9 @@
+from clases.Libro import *
+
 class Autor:
 
-    def __init__(self, nombre, nacionalidad, fecha_nac):
+    def __init__(self, id_autor, nombre, nacionalidad, fecha_nac):
+        self.id_autor = id_autor
         self.nombre = nombre
         self.nacionalidad = nacionalidad
         self.fecha_nac = fecha_nac
@@ -12,6 +15,9 @@ class Autor:
 
     # --------------------------------------------------------------- Getters --------------------------------------------------------------
 
+    def getIdAutor(self):
+        return self.id_autor
+    
     def getNombre(self):
         return self.nombre
 
@@ -28,6 +34,9 @@ class Autor:
         return self.libros
 
     # -------------------------------------------------------------- Setters --------------------------------------------------------------
+
+    def setIdAutor(self, id_autor):
+        self.id_autor = id_autor
 
     def setNombre(self, nombre):
         self.nombre = nombre

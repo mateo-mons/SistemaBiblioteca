@@ -12,8 +12,8 @@ class ArticuloCientifico:
 
     # Representación de la clase Libro en forma de cadena
 
-    def __str__(self):
-        return f"Titulo: {self.titulo}, DOI: {self.doi}, Editor: {self.editor}, Fecha de publicación: {self.fecha_publicacion}, Periodicidad: {self.periodicidad}, Volumen: {self.volumen}, Campo de interés: {self.campo_interes}, Estado: {self.estado}"
+    def verArticuloCientifico(self):
+        return f"Titulo: {self.titulo}\nDOI: {self.doi}\nEditor: {self.editor}\nFecha de publicación: {self.fecha_publicacion}\nPeriodicidad: {self.periodicidad}\nVolumen: {self.volumen}\nCampo de interés: {self.campo_interes}\nEstado: {self.estado}"
 
     # --------------------------------------------------------------- Getters --------------------------------------------------------------
 
@@ -68,3 +68,22 @@ class ArticuloCientifico:
         self.estado = estado
 
     # -------------------------------------------------------------- Operaciones --------------------------------------------------------------
+
+    def modificarDatos(self, titulo=None, doi=None, editor=None, fecha_publicacion=None, periodicidad=None, volumen=None, campo_interes=None, estado=None):
+        if titulo:
+            self.setTitulo(titulo)
+        if doi:
+            self.setDoi(doi)
+        if editor:
+            self.setEditor(editor)
+        if fecha_publicacion:
+            self.setFechaPublicacion(fecha_publicacion)
+        if periodicidad:
+            self.setPeriodicidad(periodicidad)
+        if volumen:
+            self.setVolumen(volumen)
+        if campo_interes:
+            self.setCampoInteres(campo_interes)
+        if estado:
+            self.setEstado(estado)
+        
