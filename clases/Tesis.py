@@ -21,7 +21,7 @@ class Tesis(Producto):
     #--------------------------------------------------------------- getter --------------------------------------------------------------
  
     def getAutor(self):
-        return self.autor
+        return self.autor.getNombre()
     
     def getInstitucion(self):
         return self.autor
@@ -68,7 +68,7 @@ class Tesis(Producto):
 
     def modificarDatos(self, autor=None, institucion=None, fecha_investigacion=None, fecha_presentacion=None, campo=None, estado=None, paginas=None):
         if autor:
-            self.autor.setNombre(autor)
+            self.setAutor(autor)
         if institucion:
             self.setInstitucion(institucion)
         if fecha_investigacion:

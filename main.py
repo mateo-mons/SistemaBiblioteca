@@ -145,9 +145,8 @@ while True:
                                 ident.verTesis()
                                 print("\n")
                                 break
-                            else:
-                                print("La tesis solicitada no está en el sistema")
-                                print("\n")
+                        else:
+                            print("La tesis solicitada no está en el sistema")
                                 
                     elif option1_1 == 3:
                         print("-- Modifica detalles de una tesis --")
@@ -163,8 +162,8 @@ while True:
                                 nuevo_num_paginas = int(input("Nuevo numero de paginas: "))
                                 ident.modificarDatos(nuevo_autor, nueva_institucion, nueva_fecha_investigacion, nuevo_campo, nuevo_estado, nuevo_num_paginas)
                                 break
-                            else:
-                                print("La tesis solicitada no está en el sistema")
+                        else:
+                            print("La tesis solicitada no está en el sistema")
 
                     elif option1_1 == 4:
                         print("-- Elimina una tesis --")
@@ -173,8 +172,8 @@ while True:
                             if ident.id_tesis == id_tes:
                                 listaTesis.remove(ident)
                                 break
-                            else:
-                                print("La tesis solicitada no está en el sistema")
+                        else:
+                            print("La tesis solicitada no está en el sistema")
 
                     elif option1_1 == 5:
                         print("...")
@@ -197,38 +196,46 @@ while True:
                         volumen = input("Ingresa el volumen del articulo: ")
                         campo_interes = input("Ingresa el campo de interes del articulo: ")
                         estado = input("Ingresa estado del articulo: ")
-                        artCienti = factory.crear_articulo(titulo, doi, editor, fecha_publicacion, periodicidad, volumen, campo, estado, autor)
+                        artCienti = factory.crear_articulo(titulo, doi, editor, fecha_publicacion, periodicidad, volumen, campo_interes, estado)
                         listaArtiCientificos.append(artCienti)
 
                     elif option1_2 == 2:
                         print("-- Busca articulo cientifico --")
-                        id_doi = int(input("Identificador DOI del articulo cientifico: "))
+                        id_doi = input("Identificador DOI del articulo cientifico: ")
                         for ident in listaArtiCientificos:
                             if ident.doi == id_doi:
                                 ident.verArticuloCientifico()
                                 break
-                            else:
-                                print("El articulo solicitado no está en el sistema")
+                        else:
+                            print("El articulo solicitado no está en el sistema")
 
                     elif option1_2 == 3:
                         print("-- Modifica un articulo cientifico --")
-                        id_doi = int(input("Identificador DOI del articulo cientifico: "))
+                        id_doi = input("Identificador DOI del articulo cientifico: ")
                         for ident in listaArtiCientificos:
                             if ident.doi == id_doi:
-                                ident.modificarDatos()
+                                nuevo_titulo = input("Ingrese el nuevo titulo: ")
+                                nuevo_doi = input("Ingrese el nuevo DOI: ")
+                                nuevo_editor = input("Ingrese el nuevo editor: ")
+                                nueva_fecha_publicacion = input("Ingrese la nueva fecha de publicacion: ")
+                                nueva_periodicidad = input("Ingrese la nueva periodicidad: ")
+                                nuevo_volumen = input("Ingrese el nuevo volumen: ")
+                                nuevo_campo_interes = input("Ingrese el nuevo campo de interes: ")
+                                nuevo_estado = input("Ingrese el nuevo estado: ")
+                                ident.modificarDatos(nuevo_titulo, nuevo_doi, nuevo_editor, nueva_fecha_publicacion, nueva_periodicidad, nuevo_volumen, nuevo_campo_interes, nuevo_estado)
                                 break
-                            else:
-                                print("El articulo solicitado no está en el sistema")
+                        else:
+                            print("El articulo solicitado no está en el sistema")
 
                     elif option1_2 == 4:
                         print("-- Elimina un articulo cientifico --")
-                        id_doi = int(input("Identificador DOI del articulo cientifico: "))
+                        id_doi = input("Identificador DOI del articulo cientifico: ")
                         for ident in listaArtiCientificos:
                             if ident.doi == id_doi:
                                 listaArtiCientificos.remove(ident)
                                 break
-                            else:
-                                print("El articulo solicitado no está en el sistema")
+                        else:
+                            print("El articulo solicitado no está en el sistema")
 
                     elif option1_2 == 5:
                         print("...")
@@ -242,39 +249,60 @@ while True:
                     option1_3 = int(input("Opcion: "))
 
                     if option1_3 == 1:
+                        print("-- Registra un libro --")
                         titulo = input("Titulo: ")
                         isbn = input("ISBN: ")
-                        genero = input("Genero: ")
                         edicion = input("Edicion: ")
                         ano_publicacion = int(input("Año de publicacion: "))
                         editorial = input("Editorial: ")
                         estado = input("Estado: ")
-                        nombre_autor = input("Autor: ")
                         idioma = input("Idioma: ")
                         num_copias = int(input("Numero de copias: "))
-                        
-                        autor_instancia = next((autor for autor in listaAutores if autor.getNombre() == nombre_autor), None)
-                        if autor_instancia is None:
-                            print(f"Autor {nombre_autor} no encontrado.")
-                            print("Desea añadir el autor? (S/N)")
-                            respuesta = input()
-                            if respuesta == "S" or respuesta == "s":
-                                nombre_autor = input("Nombre del autor: ")
-                                nacionalidad = input("Nacionalidad: ")
-                                fecha_nacimiento = input("Fecha de nacimiento: ")
-                                autor_instancia = Autor(nombre_autor, nacionalidad, fecha_nacimiento)
-                                listaAutores.append(autor_instancia)
+                        categoria = input("Categoria: ")
+
+                        for ident in listaCategorias:
+                            if ident.getNombre != categoria:
+                                print(f"Categoria {categoria} no encontrada.")
+                                print("Desea añadir la categoria? (S/N)")
+                                respuesta = input()
+                                if respuesta == "S" or respuesta == "s":
+                                    id_cat = input("Ingrese identificador de la categoria: ")
+                                    nombre_cat = input("Ingrese nombre de la categoria: ")
+                                    descripcion = input("Ingrese descripcion de la categoria: ")
+                                    cat_instancia = Categoria(id_cat, nombre_cat, descripcion)
+                                listaCategorias.append(cat_instancia)
                             else:
-                                continue               
+                                print("No hay categoria")
+                        else:
+                            print("Paila categoria, no se por que")
+
+                        nombre_autor = input("Autor(es): ")
+
+                        for ident in listaAutores:
+                            if ident.getNombre != nombre_autor:
+                                print(f"Autor {nombre_autor} no encontrado.")
+                                print("Desea añadir el autor? (S/N)")
+                                respuesta = input()
+                                if respuesta == "S" or respuesta == "s":
+                                    id_autor = input("Identificador del autor: ")
+                                    nacionalidad = input("Nacionalidad: ")
+                                    fecha_nacimiento = input("Fecha de nacimiento: ")
+                                    autor_instancia = Autor(id_autor, nombre_autor, nacionalidad, fecha_nacimiento)
+                                listaAutores.append(autor_instancia)
+                                break
+                            else:
+                                print("Paila autor, no se por que")    
+                        else:
+                            print("Paila autor, no se por que")          
                         
-                        libro = factory.crear_libro(titulo, isbn, genero, edicion, ano_publicacion, editorial, estado, idioma, num_copias, [autor_instancia])
+                        libro = factory.crear_libro(titulo, isbn, edicion, ano_publicacion, editorial, estado, idioma, num_copias, categoria, [autor_instancia])
                         listaLibros.append(libro)
-                        autor_instancia.listaLibros.append(libro)
-                        print(libro)
+                        autor_instancia.agregarLibro(libro)
+                        libro.verLibro()
                 
                     elif option1_3 == 2:
                         print("\n")
-                        print("Buscar libro")
+                        print("-- Busca un libro --")
                         print("1. Por ISBN")
                         print("2. Por título")
                         print("3. Por autor")
@@ -303,7 +331,8 @@ while True:
                                 print("Libro no encontrado")                       
                     elif option1_3 == 3:
                         print("\n")
-                        print("Modificar libro")
+                        print("-- Modifica detalles de un libro --")
+                        print("Busca por...")
                         print("1. Por ISBN")
                         print("2. Por título")
                         opcion_busqueda = int(input("Opción: "))
@@ -341,6 +370,7 @@ while True:
                     elif option1_3 == 4:
                         print("\n")
                         print("Inhabilitar libro")
+                        print("Busca por...")
                         print("1. Por ISBN")
                         print("2. Por título")
                         print("3. Por autor")

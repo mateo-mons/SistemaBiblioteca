@@ -11,5 +11,5 @@ class AbstractFactory(ABC):
         pass
 
     @abstractmethod
-    def crear_libro(self, titulo, isbn, genero, edicion, ano_publicacion, editorial, estado, idioma, num_copias, autores):
+    def crear_libro(self, titulo, isbn, edicion, ano_publicacion, editorial, estado, idioma, num_copias, categoria, autores):
         pass

@@ -1,24 +1,25 @@
 from clases.Producto import *
+from clases.Copias import *
 
 class Libro(Producto):
 
-    def __init__(self, titulo, isbn, genero, edicion, ano_publicacion, editorial, estado, idioma, num_copias, autores=None):
+    def __init__(self, titulo, isbn, edicion, ano_publicacion, editorial, estado, idioma, copias, categoria, autores=None):
         self.titulo = titulo
         self.isbn = isbn
-        self.genero = genero
         self.edicion = edicion
         self.ano_publicacion = ano_publicacion
         self.editorial = editorial
         self.estado = estado
         self.idioma = idioma
-        self.num_copias = num_copias
+        self.copias = []
+        self.categoria = categoria
         self.autores = autores if autores is not None else []
 
     # Representación de la clase Libro en forma de cadena
 
     def verLibro(self):
         autores_str = ', '.join([autor.getNombre() for autor in self.autores])
-        print(f"Titulo del libro: {self.titulo}\nISBN: {self.isbn}\nGénero: {self.genero}\nEdición: {self.edicion}\nAño: {self.ano_publicacion}\nEditorial: {self.editorial}\nEstado: {self.estado}\nIdioma: {self.idioma}\nNumero de copias: {self.num_copias}\nAutores: {autores_str}")
+        print(f"Titulo del libro: {self.titulo}\nISBN: {self.isbn}\nEdición: {self.edicion}\nAño: {self.ano_publicacion}\nEditorial: {self.editorial}\nEstado: {self.estado}\nIdioma: {self.idioma}\nNumero de copias: {self.copias}\Categoria: {self.categoria}\nAutores: {autores_str}")
 
     # --------------------------------------------------------------- Getters --------------------------------------------------------------
 
@@ -27,9 +28,6 @@ class Libro(Producto):
 
     def getIsbn(self):
         return self.isbn
-
-    def getGenero(self):
-        return self.genero
 
     def getEdicion(self):
         return self.edicion
@@ -47,7 +45,10 @@ class Libro(Producto):
         return self.idioma
 
     def getNumCopias(self):
-        return self.num_copias
+        return self.copias.getIdentificador()
+    
+    def getCategoria(self):
+        return self.categoria
 
     def getAutores(self):
         return self.autores
@@ -59,9 +60,6 @@ class Libro(Producto):
 
     def setIsbn(self, isbn):
         self.isbn = isbn
-
-    def setGenero(self, genero):
-        self.genero = genero
 
     def setEdicion(self, edicion):
         self.edicion = edicion
@@ -78,8 +76,11 @@ class Libro(Producto):
     def setIdioma(self, idioma):
         self.idioma = idioma
 
-    def setNumCopias(self, num_copias):
-        self.num_copias = num_copias
+    def setNumCopias(self, copias):
+        self.copias = copias
+
+    def setCategoria(self, categoria):
+        self.categoria = categoria
 
     def setAutores(self, autores):
         self.autores = autores
@@ -90,3 +91,12 @@ class Libro(Producto):
         if autor not in self.autores:
             self.autores.append(autor)
             autor.agregarLibro(self)
+
+    def agregar_copia(self, copia):
+        self.copias.append(copia)
+
+    def buscar_copia_disponible(self):
+        for copia in self.copias:
+            if copia.estado == "En biblioteca":
+                return copia
+        return None
