@@ -3,6 +3,7 @@ from clases.Autor import *
 from clases.Bibliotecario import *
 from clases.Categoria import *
 from clases.Copias import *
+from clases.Factory import *
 from clases.Lector import *
 from clases.Libro import *
 from clases.Multa import *
@@ -108,6 +109,7 @@ print(tesis1.autor.verAutor())
 
 # MAIN PROGRAM #
 while True:
+    factory = Factory()     # Posicion de la fabrica
     os.system("clear")
     main_menu()
     main_option = int(input("Opcion: "))
@@ -125,14 +127,14 @@ while True:
                     if option1_1 == 1:
                         print("-- Registra tesis --")
                         id_tesis = int(input("Ingresa identificador de la tesis: "))
-                        autor = str(input("Ingresa nombre de autor(es): "))
-                        institucion = str(input("Ingresa la institucion de estudios: "))
-                        fecha_investigacion = str(input("Ingresa la fecha de investigacion: "))
-                        fecha_presentacion = str(input("Ingresa la fecha de presentacion: "))
-                        campo = str(input("Ingresa el campo de estudios: "))
-                        estado = str(input("Ingresa el estado: "))
+                        autor = input("Ingresa nombre de autor(es): ")
+                        institucion = input("Ingresa la institucion de estudios: ")
+                        fecha_investigacion = input("Ingresa la fecha de investigacion: ")
+                        fecha_presentacion = input("Ingresa la fecha de presentacion: ")
+                        campo = input("Ingresa el campo de estudios: ")
+                        estado = input("Ingresa el estado: ")
                         num_paginas = int(input("Ingresa el numero de paginas: "))
-                        tesis = Tesis(id_tesis, autor, institucion, fecha_investigacion, fecha_presentacion, campo, estado, num_paginas)
+                        tesis = factory.crear_tesis(id_tesis, autor, institucion, fecha_investigacion, fecha_presentacion, campo, estado, num_paginas)
                         listaTesis.append(tesis)
 
                     elif option1_1 == 2:
@@ -152,12 +154,12 @@ while True:
                         id_tes = int(input("Identificador de la tesis: "))
                         for ident in listaTesis:
                             if ident.id_tesis == id_tes:
-                                nuevo_autor = str(input("Nombre del nuevo autor: "))
-                                nueva_institucion = str(input("Nueva institucion: "))
-                                nueva_fecha_investigacion = str(input("Nueva fecha investigacion: "))
-                                nueva_fecha_presentacion = str(input("Nueva fecha de presentacion: "))
-                                nuevo_campo = str(input("Nuevo campo: "))
-                                nuevo_estado = str(input("Nuevo estado: "))
+                                nuevo_autor = input("Nombre del nuevo autor: ")
+                                nueva_institucion = input("Nueva institucion: ")
+                                nueva_fecha_investigacion = input("Nueva fecha investigacion: ")
+                                nueva_fecha_presentacion = input("Nueva fecha de presentacion: ")
+                                nuevo_campo = input("Nuevo campo: ")
+                                nuevo_estado = input("Nuevo estado: ")
                                 nuevo_num_paginas = int(input("Nuevo numero de paginas: "))
                                 ident.modificarDatos(nuevo_autor, nueva_institucion, nueva_fecha_investigacion, nuevo_campo, nuevo_estado, nuevo_num_paginas)
                                 break
@@ -187,15 +189,15 @@ while True:
 
                     if option1_2 == 1:
                         print("-- Registra articulo cientifico --")
-                        titulo = str(input("Ingresa el titulo del articulo: "))
-                        doi = int(input("Ingresa el identificador DOI del articulo: "))
-                        editor = str(input("Ingresa el editor del articulo: "))
-                        fecha_publicacion = str(input("Ingresa la fecha de publicacion del articulo: "))
-                        periodicidad = str(input("Ingresa la periodicidad del articulo: "))
-                        volumen = str(input("Ingresa el volumen del articulo: "))
-                        campo_interes = str(input("Ingresa el campo de interes del articulo: "))
-                        estado = str(input("Ingresa estado del articulo: "))
-                        artCienti = ArticuloCientifico(id_tesis, autor, institucion, fecha_investigacion, fecha_presentacion, campo, estado, num_paginas)
+                        titulo = input("Ingresa el titulo del articulo: ")
+                        doi = input("Ingresa el identificador DOI del articulo: ")
+                        editor = input("Ingresa el editor del articulo: ")
+                        fecha_publicacion = input("Ingresa la fecha de publicacion del articulo: ")
+                        periodicidad = input("Ingresa la periodicidad del articulo: ")
+                        volumen = input("Ingresa el volumen del articulo: ")
+                        campo_interes = input("Ingresa el campo de interes del articulo: ")
+                        estado = input("Ingresa estado del articulo: ")
+                        artCienti = factory.crear_articulo(titulo, doi, editor, fecha_publicacion, periodicidad, volumen, campo, estado, autor)
                         listaArtiCientificos.append(artCienti)
 
                     elif option1_2 == 2:
@@ -265,7 +267,7 @@ while True:
                             else:
                                 continue               
                         
-                        libro = Libro(titulo, isbn, genero, edicion, ano_publicacion, editorial, estado, idioma, num_copias, [autor_instancia])
+                        libro = factory.crear_libro(titulo, isbn, genero, edicion, ano_publicacion, editorial, estado, idioma, num_copias, [autor_instancia])
                         listaLibros.append(libro)
                         autor_instancia.listaLibros.append(libro)
                         print(libro)

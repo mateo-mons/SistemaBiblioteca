@@ -1,6 +1,7 @@
+from clases.Producto import *
 from clases.Autor import *
 
-class Tesis:
+class Tesis(Producto):
 
     def __init__(self, id_tesis, autor, institucion, fecha_investigacion, fecha_presentacion, campo, estado, paginas):
         self.id_tesis = id_tesis

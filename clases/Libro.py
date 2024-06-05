@@ -1,4 +1,6 @@
-class Libro:
+from clases.Producto import *
+
+class Libro(Producto):
 
     def __init__(self, titulo, isbn, genero, edicion, ano_publicacion, editorial, estado, idioma, num_copias, autores=None):
         self.titulo = titulo

@@ -1,4 +1,6 @@
-class ArticuloCientifico:
+from clases.Producto import *
+
+class ArticuloCientifico(Producto):
 
     def __init__(self, titulo, doi, editor, fecha_publicacion, periodicidad, volumen, campo_interes, estado):
         self.titulo = titulo
