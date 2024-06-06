@@ -100,29 +100,23 @@ listaLibros.append(libro10)
 autor10.libros.append(libro10)
 
 autor1 = Autor("5", "Rafael Camilo Lopez Gomez", "Colombia", "04-07-1987")
-tesis1 = Tesis(10, autor1, "UTP", "23-06-2023", "05-12-2023", "Ingenieria", "Disponible", 10)
-copia1 = Copia(1, "Disponible", "9788478884455")
+tesis1 = Tesis("10", autor1, "UTP", "23-06-2023", "05-12-2023", "Ingenieria", "Disponible", 10)
 
-listaCopias.append(copia1)
 listaAutores.append(autor1)
 listaTesis.append(tesis1)
 
 articC1 = ArticuloCientifico("Redaccion a la fisica cuantica", "2354", "Editorial planeta", "23-4-2023", "3 semanas", "Vol 1", "Fisica cuantica", "Disponible")
 listaArtiCientificos.append(articC1)
 
-bibliotecario1 = Bibliotecario("Alejandro Magno", 20, "323432023", "Cra 32 # 433-543")
+bibliotecario1 = Bibliotecario("Alejandro Magno", "20", "323432023", "Cra 32 # 433-543")
 listaBibliotecarios.append(bibliotecario1)
 
-lector1 = Lector("Carlos Dario", 10, "321323443", "Calle falsa # 123", "Normal")
-lector2 = Lector("Jose Manuel", 11, "321323443", "Calle real # 123", "Sancionado")
-lector3 = Lector("Manuela Garcia", 12, "321323443", "Calle quien sabe # 123", "Suspendido")
+lector1 = Lector("Carlos Dario", "10", "321323443", "Calle falsa # 123", "Normal")
+lector2 = Lector("Jose Manuel", "11", "321323443", "Calle real # 123", "Sancionado")
+lector3 = Lector("Manuela Garcia", "12", "321323443", "Calle quien sabe # 123", "Suspendido")
 listaLectores.append(lector1)
 listaLectores.append(lector2)
 listaLectores.append(lector3)
-
-print(tesis1.verTesis())
-print("--------------------------------")
-print(tesis1.autor.verAutor())
 
 
 # MAIN PROGRAM #
@@ -282,7 +276,7 @@ while True:
                             if identC.getNombre() != categoria:
                                 print(f"Categoria {categoria} no encontrada.")
                                 print("Desea añadir la categoria? (S/N)")
-                                respuesta = input()
+                                respuesta = input("Respuesta: ")
                                 if respuesta == "S" or respuesta == "s":
                                     id_cat = input("Ingrese identificador de la categoria: ")
                                     descripcion = input("Ingrese descripcion de la categoria: ")
@@ -300,7 +294,7 @@ while True:
                             if ident.getNombre != nombre_autor:
                                 print(f"Autor {nombre_autor} no encontrado.")
                                 print("Desea añadir el autor? (S/N)")
-                                respuesta = input()
+                                respuesta = input("Respuesta: ")
                                 if respuesta == "S" or respuesta == "s":
                                     id_autor = input("Identificador del autor: ")
                                     nacionalidad = input("Nacionalidad: ")
@@ -489,7 +483,7 @@ while True:
                             print("La categoria solicitada no está en el sistema")
 
                     elif option1_4 == 4:
-                        print("-- Eliminar la copia --")
+                        print("-- Elimina una categoria --")
                         id_cat = input("Identificador de la categoria: ")
                         categoria_encontrada = False
                         for ident in listaCategorias:
@@ -561,21 +555,6 @@ while True:
                             print("El autor solicitado no está en el sistema")
 
                     elif option1_5 == 4:
-                        print("-- Asociar libro a autor --")
-                        id_autor = int(input("Identificador del autor: "))
-                        for ident1 in listaAutores:
-                            if ident1.id_autor == id_autor:
-                                id_prod = int(input("Identificador de producto: "))
-                                for ident2 in listaArtiCientificos or ident2 in listaLibros or ident2 in listaTesis:
-                                    if ident2.doi == id_prod or ident2.isbn == id_prod or ident2.id_tesis == id_prod:
-                                        ident1.agregarLibro(ident2)
-                                    else:
-                                        print("El producto solicitado no está en el sistema")
-                                break
-                            else:
-                                print("El autor solicitado no está en el sistema")
-
-                    elif option1_5 == 5:
                         print("...")
                         break
                     else:
@@ -598,17 +577,17 @@ while True:
                     option2_1 = int(input("Opcion: "))
 
                     if option2_1 == 1:
-                        nombre = str(input("Nombre del Bibliotecario: "))
-                        id = int(input("ID: "))
+                        nombre = input("Nombre del Bibliotecario: ")
+                        id = input("ID: ")
                         telefono = int(input("Teléfono: "))
-                        direccion = str(input("Dirección: "))
+                        direccion = input("Dirección: ")
                         bibliotecario = Bibliotecario(nombre, id, telefono, direccion)
                         listaBibliotecarios.append(bibliotecario)
                         print("Bibliotecario agregado")
                         
                     elif option2_1 == 2:
                         print("-- Busca Bibliotecario --")
-                        id_biblio = int(input("Identificador Bibliotecario: "))
+                        id_biblio = input("Identificador Bibliotecario: ")
                         for ident in listaBibliotecarios:
                             if ident.id == id_biblio:
                                 ident.verBibliotecario()
@@ -618,13 +597,13 @@ while True:
 
                     elif option2_1 == 3:
                         print("-- Modifica detalles de un bibliotecario --")
-                        id_biblio = int(input("Identificador del bibliotecario a modificar: "))
+                        id_biblio = input("Identificador del bibliotecario a modificar: ")
                         for ident in listaBibliotecarios:
                             if ident.id == id_biblio:
-                                nombre = str(input("Nombre del bibliotecario: "))
-                                id = int(input("ID: "))
+                                nombre = input("Nombre del bibliotecario: ")
+                                id = input("ID: ")
                                 telefono = int(input("Teléfono: "))
-                                direccion = str(input("Dirección: "))
+                                direccion = input("Dirección: ")
                                 bibliotecario = Bibliotecario(nombre, id, telefono, direccion)
                                 ident.modificarDatos(nombre, id, telefono, direccion)
                                 print("Bibliotecario modificado con éxito!")   
@@ -634,7 +613,7 @@ while True:
                         
                     elif option2_1 == 4:
                         print("-- Elimina un bibliotecario --")
-                        id_biblio = int(input("Identificador bibliotecario: "))
+                        id_biblio = input("Identificador bibliotecario: ")
                         for ident in listaBibliotecarios:
                             found = False
                             if ident.id == id_biblio:
@@ -657,18 +636,18 @@ while True:
                     option2_2 = int(input("Opcion: "))
 
                     if option2_2 == 1:
-                        nombre = str(input("Nombre del lector: "))
-                        id = int(input("ID: "))
+                        nombre = input("Nombre del lector: ")
+                        id = input("ID: ")
                         telefono = int(input("Teléfono: "))
-                        direccion = str(input("Dirección: "))
-                        estado = str(input("Estado: "))
+                        direccion = input("Dirección: ")
+                        estado = input("Estado: ")
                         lector = Lector(nombre, id, telefono, direccion, estado)
                         listaLectores.append(lector)
                         print("Lector agregado")
                     
                     elif option2_2 == 2:
                         print("-- Busca Lector --")
-                        id_lector = int(input("Identificador del lector: "))
+                        id_lector = input("Identificador del lector: ")
                         for ident in listaLectores:
                             if ident.id == id_lector:
                                 ident.verLector()
@@ -678,14 +657,14 @@ while True:
 
                     elif option2_2 == 3:
                         print("-- Modifica detalles de un lector --")
-                        id_lector = int(input("Identificador del lector a modificar: "))
+                        id_lector = input("Identificador del lector a modificar: ")
                         for ident in listaLectores:
                             if ident.id == id_lector:
-                                nombre = str(input("Nombre del lector: "))
-                                id = int(input("ID: "))
+                                nombre = input("Nombre del lector: ")
+                                id = input("ID: ")
                                 telefono = int(input("Teléfono: "))
-                                direccion = str(input("Dirección: "))
-                                estado = str(input("Estado: "))
+                                direccion = input("Dirección: ")
+                                estado = input("Estado: ")
                                 lector = Lector(nombre, id, telefono, direccion, estado)
                                 ident.modificarDatos(nombre, id, telefono, direccion, estado)
                                 print("Lector modificado con éxito!")   
@@ -694,7 +673,8 @@ while True:
                             print("El lector solicitado no está en el sistema")
 
                     elif option2_2 == 4:
-                        id_lector = int(input("Identificador del lector a habilitar: "))
+                        print("-- Habilita un lector --")
+                        id_lector = input("Identificador del lector a habilitar: ")
                         for ident in listaLectores:
                             if ident.id == id_lector:
                                 ident.setEstado("Habilitado")
@@ -704,7 +684,8 @@ while True:
                             print("El lector solicitado no está en el sistema")
 
                     elif option2_2 == 5:
-                        id_lector = int(input("Identificador del lector a inhabilitar: "))
+                        print("-- Inhabilita un lector --")
+                        id_lector = input("Identificador del lector a inhabilitar: ")
                         for ident in listaLectores:
                             if ident.id == id_lector:
                                 ident.setEstado("Inhabilitado")
@@ -727,42 +708,39 @@ while True:
 
     elif main_option == 3:
         while True:
-            menu_administracion_prestamos()
+            menu_administracion_transacciones()
             option3 = int(input("Opcion: "))
 
             if option3 == 1:
                 while True:
-                    menu_admi_transacciones()
+                    menu_admi_prestamos()
                     option3_1 = int(input("Opcion: "))
 
                     if option3_1 == 1:
-                        
-                            id_lector = input("Ingrese el ID del lector: ")
-                            lector = next((l for l in listaLectores if l.getId() == id_lector), None)
-                            if not lector:
-                                print("Lector no encontrado.")
-                                break
-                            
-                            id_libro = input("Ingrese el ID del libro: ")
-                            libro = next((l for l in listaLibros if l.getId() == id_libro), None)
-                            if not libro:
-                                print("Libro no encontrado.")
-                                break
-                            
-                            if libro.getEstado() != "disponible":
-                                print("Libro no disponible para préstamo.")
-                                break
-                            
-                            dias_prestamo = int(input("Ingrese los días de préstamo (máximo 3): "))
-                            fecha_prestamo = datetime.now().strftime("%Y-%m-%d")
-                            prestamo = Prestamo(len(listaPrestamos) + 1, id_libro, id_lector, dias_prestamo, fecha_prestamo)
-                            listaPrestamos.append(prestamo)
-                            lector.agregarLibroPrestado(libro)
-                            libro.setEstado("prestado")
-                            print(f"Préstamo registrado exitosamente. Fecha de devolución: {prestamo.getFechaEntrega().strftime('%Y-%m-%d')}")
+                        libro = input("Título del libro a buscar: ")
+                        for ident in listaLibros:
+                            if ident.titulo == libro:
+                                copias_disponibles = libro.buscar_copia_disponible()
+                                if copias_disponibles:
+                                    print("Copias disponibles:")
+                                    for i, copia in enumerate(copias_disponibles, 1):
+                                        print(f"{i}. {copia.mostrar_detalles()}")
+                                    opcion_copia = input("Seleccione el número de copia que desea prestar: ")
+                                    try:
+                                        indice_copia = int(opcion_copia) - 1
+                                        copia_seleccionada = copias_disponibles[indice_copia]
+                                        # Código para registrar préstamo de la copia seleccionada
+                                    except ValueError:
+                                        print("Entrada inválida. Introduzca un número válido.")
+                                    except IndexError:
+                                        print("Número de copia seleccionada fuera de rango.")
+                                else:
+                                    print("No hay copias disponibles en la biblioteca.")
+                        else:
+                            print("Libro no encontrado.")
 
                     elif option3_1 == 2:
-
+                        print("-- Devolver un prestamo --")
                         id_lector = input("Ingrese el ID del lector: ")
                         lector = next((l for l in listaLectores if l.getId() == id_lector), None)
                         if not lector:

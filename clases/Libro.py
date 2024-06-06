@@ -19,6 +19,7 @@ class Libro(Producto):
     # Representación de la clase Libro en forma de cadena
 
     def verLibro(self):
+        print("-- Detalles --")
         autores_str = ', '.join([autor.getNombre() for autor in self.autores])
         print(f"Titulo del libro: {self.titulo}\nISBN: {self.isbn}\nEdición: {self.edicion}\nAño: {self.ano_publicacion}\nEditorial: {self.editorial}\nEstado: {self.estado}\nIdioma: {self.idioma}\nNumero de copias: {self.copias}\nCategoria: {self.categoria}\nAutores: {autores_str}")
 

@@ -8,6 +8,7 @@ class Categoria:
     # Representación de la clase Categoria en forma de cadena
 
     def verCategoria(self):
+        print("-- Detalles --")
         print(f"Id: {self.id}\nCategoria: {self.nombre}\nDescripcion: {self.descripcion}")
     
     #--------------------------------------------------------------- getter --------------------------------------------------------------

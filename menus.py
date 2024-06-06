@@ -3,7 +3,7 @@ def main_menu():
     print("****** SISTEMA BIBLIOTECA ******")
     print("1. Administrar productos")
     print("2. Administrar usuarios")
-    print("3. Administracion de prestamos")
+    print("3. Administrar transacciones")
     print("4. Salir")
 
 # 1 #
@@ -58,8 +58,7 @@ def menu_admin_info_autores():
     print("1. Registrar autor")
     print("2. Buscar autor")
     print("3. Modificar detalles de autor")
-    print("4. Asociar libro")
-    print("5. Volver")
+    print("4. Volver")
 
 # 2 #
 def menu_administracion_usuarios():
@@ -88,14 +87,14 @@ def menu_admin_lector():
     print("6. Volver")
 
 # 3 #
-def menu_administracion_prestamos():
-    print("-- Prestamos y transacciones --")
+def menu_administracion_transacciones():
+    print("-- Transacciones --")
     print("1. Realizar transaccion")
     print("2. Administrar de multas")
     print("3. Volver")
 
 # 3.1 #
-def menu_admi_transacciones():
+def menu_admi_prestamos():
     print("-- Transacciones --")
     print("1. Solicitud de prestamo")
     print("2. Devolucion de prestamo")
@@ -107,38 +106,3 @@ def menu_admi_multas():
     print("1. Asignar multa")
     print("2. Levantar multa")
     print("3. Volver")
-
-
-'''
-1. Administrar productos
-    - tesis
-        * administrar autor
-        * administrar categoria
-    - arti. cientifico
-        * administrar autor
-        * administrar categoria
-    - libros
-        * administrar autor
-        * administrar categoria, subcategoria
-    - copias
-        * tesis
-        * art. cient
-        * libros
-    - informacion de autores
-        * consultas, modificaciones
-2. Administrar usuario
-    - bibliotecario
-    - lector
-        * consultar prestamos, multas y esa vuelta
-
-3. Administracion de prestamos
-    - Realizar transaccion
-        * solicitud de prestamo
-        * devolver prestamo
-        * pagar multa
-    - Administracion de multas
-        * asignar multa
-        * consultar estado de multas
-4. Salir
-
-'''

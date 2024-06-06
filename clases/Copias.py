@@ -11,6 +11,7 @@ class Copia:
     # Representación de la clase Copias en forma de cadena
 
     def verCopia(self):
+        print("-- Detalles --")
         print(f"Copia ID: {self.identificador}\nNombre: {self.nombre_libro}\n Estado: {self.estado}\nISBN: {self.isbn}")
     
     #--------------------------------------------------------------- getter --------------------------------------------------------------

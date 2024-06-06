@@ -16,6 +16,7 @@ class Tesis(Producto):
     # Representación de la clase Tesis en forma de cadena
 
     def verTesis(self):
+        print("-- Detalles --")
         print(f"Autor: {self.autor.getNombre()}\nInstitucion: {self.institucion}\nFecha de investigacion: {self.fecha_investigacion}\nFecha de presentacion: {self.fecha_presentacion}\nCampo: {self.campo}\nEstado: {self.estado}\nNumero paginas: {self.paginas}")
     
     #--------------------------------------------------------------- getter --------------------------------------------------------------

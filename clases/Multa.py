@@ -12,6 +12,7 @@ class Multa:
     # Representación de la clase Libro en forma de cadena
 
     def verMulta(self):
+        print("-- Detalles --")
         print(f"ID multa: {self.id_multa}\nID prestamo: {self.id_prestamo}\nDias de retraso: {self.dias_retraso}\nFecha de entrega: {self.fecha_entrega}\nFecha de finalizacion: {self.fecha_finalizacion}\nEstado: {self.estado}")
 
     # --------------------------------------------------------------- Getters --------------------------------------------------------------

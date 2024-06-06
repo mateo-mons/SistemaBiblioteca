@@ -9,6 +9,7 @@ class Bibliotecario:
 
 
     def verBibliotecario(self):
+        print("-- Detalles --")
         print(f"Nombre: {self.nombre}\nID: {self.id}\nTeléfono: {self.telefono}\nDirección: {self.direccion}")
 
     # --------------------------------------------------------------- Getters --------------------------------------------------------------

@@ -15,6 +15,7 @@ class ArticuloCientifico(Producto):
     # Representación de la clase Libro en forma de cadena
 
     def verArticuloCientifico(self):
+        print("-- Detalles --")
         print(f"Titulo: {self.titulo}\nDOI: {self.doi}\nEditor: {self.editor}\nFecha de publicación: {self.fecha_publicacion}\nPeriodicidad: {self.periodicidad}\nVolumen: {self.volumen}\nCampo de interés: {self.campo_interes}\nEstado: {self.estado}")
 
     # --------------------------------------------------------------- Getters --------------------------------------------------------------

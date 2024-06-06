@@ -12,6 +12,7 @@ class Lector:
     # Representación de la clase Libro en forma de cadena
 
     def verLector(self):
+        print("-- Detalles --")
         print(f"Nombre: {self.nombre}\nID: {self.id}\nTeléfono: {self.telefono}\nDirección: {self.direccion}\nEstado: {self.estado}\nLibros prestados: {len(self.libros_prestados)}\nMultas: {len(self.multas)}")
 
     # --------------------------------------------------------------- Getters --------------------------------------------------------------
