@@ -39,3 +39,11 @@ class Categoria:
         self.subcategoria = subcategoria
 
     #-------------------------------------------------------------- operaciones --------------------------------------------------------------
+
+    def modificarDatos(self, id=None, nombre=None, descripcion=None):
+        if id:
+            self.setId(id)
+        if nombre:
+            self.setNombre(nombre)
+        if descripcion:
+            self.setDescripcion(descripcion)

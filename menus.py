@@ -12,7 +12,7 @@ def menu_administracion_productos():
     print("1. Administrar tesis")
     print("2. Administrar articulo cientifico")
     print("3. Administrar libro")
-    print("4. Administrar copias")
+    print("4. Administrar categorias")
     print("5. Administrar informacion de autores")
     print("6. Volver")
 
@@ -44,12 +44,13 @@ def menu_admin_libros():
     print("5. Volver")
 
 # 1.4 #
-def menu_admin_copias():
-    print("-- Copias --")
-    print("1. Registrar copia")
-    print("2. Buscar copia")
-    print("3. Eliminar copia")
-    print("4. Volver")
+def menu_admin_categorias():
+    print("-- Categorias --")
+    print("1. Registrar categoria")
+    print("2. Buscar categoria")
+    print("3. Modificar categoria")
+    print("4. Eliminar categoria")
+    print("5. Volver")
 
 # 1.5 #
 def menu_admin_info_autores():

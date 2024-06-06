@@ -1,5 +1,6 @@
 from clases.Producto import *
 from clases.Copias import *
+from clases.Categoria import *
 
 class Libro(Producto):
 
@@ -19,7 +20,7 @@ class Libro(Producto):
 
     def verLibro(self):
         autores_str = ', '.join([autor.getNombre() for autor in self.autores])
-        print(f"Titulo del libro: {self.titulo}\nISBN: {self.isbn}\nEdición: {self.edicion}\nAño: {self.ano_publicacion}\nEditorial: {self.editorial}\nEstado: {self.estado}\nIdioma: {self.idioma}\nNumero de copias: {self.copias}\Categoria: {self.categoria}\nAutores: {autores_str}")
+        print(f"Titulo del libro: {self.titulo}\nISBN: {self.isbn}\nEdición: {self.edicion}\nAño: {self.ano_publicacion}\nEditorial: {self.editorial}\nEstado: {self.estado}\nIdioma: {self.idioma}\nNumero de copias: {self.copias}\nCategoria: {self.categoria}\nAutores: {autores_str}")
 
     # --------------------------------------------------------------- Getters --------------------------------------------------------------
 
@@ -45,7 +46,7 @@ class Libro(Producto):
         return self.idioma
 
     def getNumCopias(self):
-        return self.copias.getIdentificador()
+        return self.copias
     
     def getCategoria(self):
         return self.categoria
@@ -100,3 +101,25 @@ class Libro(Producto):
             if copia.estado == "En biblioteca":
                 return copia
         return None
+
+    def modificarDatos(self, titulo=None, isbn=None, edicion=None, ano_publicacion=None, editorial=None, estado=None, idioma=None, copias=None, categoria=None, autores=None):
+        if titulo:
+            self.setTitulo(titulo)
+        if isbn:
+            self.setIsbn(isbn)
+        if edicion:
+            self.setEdicion(edicion)
+        if ano_publicacion:
+            self.setAnoPublicacion(ano_publicacion)
+        if editorial:
+            self.setEditorial(editorial)
+        if estado:
+            self.setEstado(estado)
+        if idioma:
+            self.setIdioma(idioma)
+        if copias:
+            self.setNumCopias(copias)
+        if categoria:
+            self.setCategoria(categoria)
+        if autores:
+            self.setAutores(autores)

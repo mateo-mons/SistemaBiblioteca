@@ -25,63 +25,81 @@ listaTesis = []
 listaBibliotecarios = []
 
 # OBJETOS QUEMADOS PARA PRUEBAS #
+categoria1 = Categoria(11, "Fantasía", "Un mundo de maravillas ome")
+categoria2 = Categoria(12, "Realismo mágico", "Otro mundo de maravillas ome")
+categoria3 = Categoria(13, "Distopía", "Un mundo diferente al que conocemos ome")
+categoria4 = Categoria(14, "Novela romántica", "Un mundo lleno de romance omeee")
+categoria5 = Categoria(15, "Novela picaresca", "Un mundo re picaro omeee")
+categoria6 = Categoria(16, "Novela de aventuras", "Un mundo lleno de aventuras y exploraciones ome")
+categoria7 = Categoria(17, "Literatura infantil", "Un mundo de aventuras infantiles ome")
+categoria8 = Categoria(18, "Novela juvenil", "Un mundo de aventuras juveniles ome")
+categoria9 = Categoria(19, "Ficción absurda", "Un mundo lleno de aventuras absurdas ome")
+listaCategorias.append(categoria1)
+listaCategorias.append(categoria2)
+listaCategorias.append(categoria3)
+listaCategorias.append(categoria4)
+listaCategorias.append(categoria5)
+listaCategorias.append(categoria6)
+listaCategorias.append(categoria7)
+listaCategorias.append(categoria8)
+listaCategorias.append(categoria9)
 
-autor2 = Autor(1,"J.K. Rowling", "Británica", "31 de julio de 1965")
+autor2 = Autor("1","J.K. Rowling", "Británica", "31 de julio de 1965")
 listaAutores.append(autor2)
-libro2 = Libro("Harry Potter y la piedra filosofal", "9788478884455", "Fantasía", "Edición especial", 1997, "Salamandra", "Usado", "Español", 50, [autor2])
+libro2 = Libro("Harry Potter y la piedra filosofal", "9788478884455", "Edición especial", 1997, "Salamandra", "Usado", "Español", 50, categoria1.getNombre(), [autor2])
 listaLibros.append(libro2)
 autor2.libros.append(libro2)
 
-autor3 = Autor(2,"Gabriel García Márquez", "Colombiana", "6 de marzo de 1927")
+autor3 = Autor("2","Gabriel García Márquez", "Colombiana", "6 de marzo de 1927")
 listaAutores.append(autor3)
-libro3 = Libro("Cien años de soledad", "9788437615030", "Realismo mágico", "Edición conmemorativa", 1967, "Diana", "Nuevo", "Español", 80, [autor3])
+libro3 = Libro("Cien años de soledad", "9788437615030", "Edición conmemorativa", 1967, "Diana", "Nuevo", "Español", 80, categoria2.getNombre(), [autor3])
 listaLibros.append(libro3)
 autor3.libros.append(libro3)
 
-autor4 = Autor(3,"George Orwell", "Británica", "25 de junio de 1903")
+autor4 = Autor("3","George Orwell", "Británica", "25 de junio de 1903")
 listaAutores.append(autor4)
-libro4 = Libro("1984", "9780141036144", "Distopía", "Reedición", 1949, "Penguin Books", "Usado", "Inglés", 60, [autor4])
+libro4 = Libro("1984", "9780141036144", "Reedición", 1949, "Penguin Books", "Usado", "Inglés", 60, categoria3.getNombre(), [autor4])
 listaLibros.append(libro4)
 autor4.libros.append(libro4)
 
-autor5 = Autor(4,"Jane Austen", "Británica", "16 de diciembre de 1775")
+autor5 = Autor("4","Jane Austen", "Británica", "16 de diciembre de 1775")
 listaAutores.append(autor5)
-libro5 = Libro("Orgullo y prejuicio", "9788497940821", "Novela romántica", "Edición ilustrada", 1813, "Alba Editorial", "Nuevo", "Español", 70, [autor5])
+libro5 = Libro("Orgullo y prejuicio", "9788497940821", "Edición ilustrada", 1813, "Alba Editorial", "Nuevo", "Español", 70, categoria4.getNombre(), [autor5])
 listaLibros.append(libro5)
 autor5.libros.append(libro5)
 
-autor6 = Autor(5,"Miguel de Cervantes", "Española", "29 de septiembre de 1547")
+autor6 = Autor("5","Miguel de Cervantes", "Española", "29 de septiembre de 1547")
 listaAutores.append(autor6)
-libro6 = Libro("Don Quijote de la Mancha", "9788420412146", "Novela picaresca", "Edición crítica", 1605, "Alfaguara", "Usado", "Español", 90, [autor6])
+libro6 = Libro("Don Quijote de la Mancha", "9788420412146", "Edición crítica", 1605, "Alfaguara", "Usado", "Español", 90, categoria5.getNombre(), [autor6])
 listaLibros.append(libro6)
 autor6.libros.append(libro6)
 
-autor7 = Autor(6,"Herman Melville", "Estadounidense", "1 de agosto de 1819")
+autor7 = Autor("6","Herman Melville", "Estadounidense", "1 de agosto de 1819")
 listaAutores.append(autor7)
-libro7 = Libro("Moby Dick", "9788491050364", "Novela de aventuras", "Edición de lujo", 1851, "Alba Editorial", "Nuevo", "Español", 40, [autor7])
+libro7 = Libro("Moby Dick", "9788491050364", "Edición de lujo", 1851, "Alba Editorial", "Nuevo", "Español", 40, categoria6.getNombre(), [autor7])
 listaLibros.append(libro7)
 autor7.libros.append(libro7)
 
-autor8 = Autor(7,"Antoine de Saint-Exupéry", "Francés", "29 de junio de 1900")
+autor8 = Autor("7","Antoine de Saint-Exupéry", "Francés", "29 de junio de 1900")
 listaAutores.append(autor8)
-libro8 = Libro("El principito", "9780547964069", "Literatura infantil", "Edición de colección", 1943, "Houghton Mifflin Harcourt", "Usado", "Español", 120, [autor8])
+libro8 = Libro("El principito", "9780547964069", "Edición de colección", 1943, "Houghton Mifflin Harcourt", "Usado", "Español", 120, categoria7.getNombre(), [autor8])
 listaLibros.append(libro8)
 autor8.libros.append(libro8)
 
-autor9 = Autor(8,"Mark Twain", "Estadounidense", "30 de noviembre de 1835")
+autor9 = Autor("8","Mark Twain", "Estadounidense", "30 de noviembre de 1835")
 listaAutores.append(autor9)
-libro9 = Libro("Las aventuras de Tom Sawyer", "9788491815234", "Novela juvenil", "Edición especial", 1876, "Penguin Clásicos", "Nuevo", "Español", 55, [autor9])
+libro9 = Libro("Las aventuras de Tom Sawyer", "9788491815234", "Edición especial", 1876, "Penguin Clásicos", "Nuevo", "Español", 55, categoria8.getNombre(), [autor9])
 listaLibros.append(libro9)
 autor9.libros.append(libro9)
 
-autor10 = Autor(9,"Franz Kafka", "Austrohúngaro", "3 de julio de 1883")
+autor10 = Autor("9","Franz Kafka", "Austrohúngaro", "3 de julio de 1883")
 listaAutores.append(autor10)
 
-libro10 = Libro("La metamorfosis", "9788483461646", "Ficción absurda", "Edición anotada", 1915, "Editorial Losada", "Nuevo", "Español", 65, [autor10])
+libro10 = Libro("La metamorfosis", "9788483461646", "Edición anotada", 1915, "Editorial Losada", "Nuevo", "Español", 65, categoria9.getNombre(), [autor10])
 listaLibros.append(libro10)
 autor10.libros.append(libro10)
 
-autor1 = Autor(5, "Rafael Camilo Lopez Gomez", "Colombia", "04-07-1987")
+autor1 = Autor("5", "Rafael Camilo Lopez Gomez", "Colombia", "04-07-1987")
 tesis1 = Tesis(10, autor1, "UTP", "23-06-2023", "05-12-2023", "Ingenieria", "Disponible", 10)
 copia1 = Copia(1, "Disponible", "9788478884455")
 
@@ -260,19 +278,19 @@ while True:
                         num_copias = int(input("Numero de copias: "))
                         categoria = input("Categoria: ")
 
-                        for ident in listaCategorias:
-                            if ident.getNombre != categoria:
+                        for identC in listaCategorias:
+                            if identC.getNombre() != categoria:
                                 print(f"Categoria {categoria} no encontrada.")
                                 print("Desea añadir la categoria? (S/N)")
                                 respuesta = input()
                                 if respuesta == "S" or respuesta == "s":
                                     id_cat = input("Ingrese identificador de la categoria: ")
-                                    nombre_cat = input("Ingrese nombre de la categoria: ")
                                     descripcion = input("Ingrese descripcion de la categoria: ")
-                                    cat_instancia = Categoria(id_cat, nombre_cat, descripcion)
+                                    cat_instancia = Categoria(id_cat, categoria, descripcion)
                                 listaCategorias.append(cat_instancia)
+                                break
                             else:
-                                print("No hay categoria")
+                                print("Categoria")
                         else:
                             print("Paila categoria, no se por que")
 
@@ -287,18 +305,17 @@ while True:
                                     id_autor = input("Identificador del autor: ")
                                     nacionalidad = input("Nacionalidad: ")
                                     fecha_nacimiento = input("Fecha de nacimiento: ")
-                                    autor_instancia = Autor(id_autor, nombre_autor, nacionalidad, fecha_nacimiento)
-                                listaAutores.append(autor_instancia)
+                                    autor = Autor(id_autor, nombre_autor, nacionalidad, fecha_nacimiento)
+                                listaAutores.append(autor)
                                 break
                             else:
-                                print("Paila autor, no se por que")    
+                                print("Ah no listo")    
                         else:
                             print("Paila autor, no se por que")          
                         
-                        libro = factory.crear_libro(titulo, isbn, edicion, ano_publicacion, editorial, estado, idioma, num_copias, categoria, [autor_instancia])
+                        libro = factory.crear_libro(titulo, isbn, edicion, ano_publicacion, editorial, estado, idioma, num_copias, categoria, [autor])
                         listaLibros.append(libro)
-                        autor_instancia.agregarLibro(libro)
-                        libro.verLibro()
+                        autor.agregarLibro(libro)
                 
                     elif option1_3 == 2:
                         print("\n")
@@ -328,7 +345,8 @@ while True:
                                 for libro in listaLibros:
                                     libro.verLibro()
                             else:
-                                print("Libro no encontrado")                       
+                                print("Libro no encontrado")     
+                  
                     elif option1_3 == 3:
                         print("\n")
                         print("-- Modifica detalles de un libro --")
@@ -340,29 +358,37 @@ while True:
                             isbn = input("ISBN: ")
                             libro = next((libro for libro in listaLibros if libro.getIsbn() == isbn), None)
                             if libro is not None:
-                                nuevo_genero = input("Nuevo género: ")
-                                nuevo_edicion = input("Nueva edición: ")
+                                nuevo_titulo = input("Nuevo titulo: ")
+                                nuevo_isbn = input("Nuevo ISBN: ")
+                                nueva_edicion = input("Nueva edicion: ")
                                 nuevo_ano_publicacion = int(input("Nuevo año de publicación: "))
                                 nueva_editorial = input("Nueva editorial: ")
                                 nuevo_estado = input("Nuevo estado: ")
                                 nuevo_idioma = input("Nuevo idioma: ")
                                 nuevo_num_copias = int(input("Nuevo número de copias: "))
-                                libro.modificarDatos(nuevo_genero, nuevo_edicion, nuevo_ano_publicacion, nueva_editorial, nuevo_estado, nuevo_idioma, nuevo_num_copias)                           
+                                nueva_categoria = input("Nueva categoria: ") 
+                                
+                                libro.modificarDatos(nuevo_titulo, nuevo_isbn, nueva_edicion, nuevo_ano_publicacion, nueva_editorial, nuevo_estado, nuevo_idioma, nuevo_num_copias, nueva_categoria, nuevo_autor=nombre_autor)                           
 
                             else:
                                 print("Libro no encontrado")
+
                         elif opcion_busqueda == 2:
                             titulo = input("Título: ")
                             libro = next((libro for libro in listaLibros if libro.getTitulo() == titulo), None)
                             if libro is not None:
-                                nuevo_genero = input("Nuevo género: ")
-                                nuevo_edicion = input("Nueva edición: ")
+                                nuevo_titulo = input("Nuevo titulo: ")
+                                nuevo_isbn = input("Nuevo ISBN: ")
+                                nueva_edicion = input("Nueva edicion: ")
                                 nuevo_ano_publicacion = int(input("Nuevo año de publicación: "))
                                 nueva_editorial = input("Nueva editorial: ")
                                 nuevo_estado = input("Nuevo estado: ")
                                 nuevo_idioma = input("Nuevo idioma: ")
                                 nuevo_num_copias = int(input("Nuevo número de copias: "))
-                                libro.modificarDatos(nuevo_genero, nuevo_edicion, nuevo_ano_publicacion, nueva_editorial, nuevo_estado, nuevo_idioma, nuevo_num_copias)                           
+                                nueva_categoria = input("Nueva categoria: ")
+                                nuevo_autor = input("Nuevo autor")
+
+                                libro.modificarDatos(nuevo_titulo, nuevo_isbn, nueva_edicion, nuevo_ano_publicacion, nueva_editorial, nuevo_estado, nuevo_idioma, nuevo_num_copias, nueva_categoria, nuevo_autor=nombre_autor)                           
 
                             else:
                                 print("Libro no encontrado")                                                                  
@@ -406,41 +432,76 @@ while True:
 
             elif option1 == 4:
                 while True:
-                    menu_admin_copias()
+                    menu_admin_categorias()
                     option1_4 = int(input("Opcion: "))
 
                     if option1_4 == 1:
-                        print("-- Registra copias --")
-                        id_copia = int(input("Ingresa identificador de la copia: "))
-                        estado = str(input("Ingresa el estado de la copia: "))
-                        isbn = int(input("Ingresa el ISBN del libro: "))
-                        copia = Copia(id_copia, estado, isbn)
-                        listaCopias.append(copia)
+                        print("-- Registra categoria --")
+                        id_cat = input("Ingresa identificador de la categoria: ")
+                        nombre = input("Ingresa el nombre de la categoria: ")
+                        descripcion = input("Ingresa descripcion de la categoria: ")
+                        categoria = Categoria(id_cat, nombre, descripcion)
+                        listaCategorias.append(categoria)
+                        print("Categoria registrada")
+
                     elif option1_4 == 2:
-                        print("-- Busca copias --")
-                        id_copia = int(input("Identificador de la copia: "))
-                        copia_encontrada = False
-                        for ident in listaCopias:
-                            if ident.identificador == id_copia:
-                                ident.verCopia()
-                                copia_encontrada = True
-                                break
+                        print("-- Busca categoria --")
+                        print("1. Por identificador")
+                        print("2. Por nombre")
+                        opcion_busqu = int(input("Opcion: "))
+                        
+                        if opcion_busqu == 1:
+                            id_cat = input("Identificador de la categoria: ")
+                            categoria_encontrada = False
+                            for ident in listaCategorias:
+                                if ident.id == id_cat:
+                                    ident.verCategoria()
+                                    categoria_encontrada = True
+                                    break
                             else:
-                                print("La copia solicitada no está en el sistema")
+                                print("La categoria solicitada no está en el sistema")
+                        
+                        elif opcion_busqu == 2:
+                            nombre = input("Nombre de la categoria: ")
+                            categoria_encontrada = False
+                            for ident in listaCategorias:
+                                if ident.nombre == nombre:
+                                    ident.verCategoria()
+                                    categoria_encontrada = True
+                                    break
+                            else:
+                                print("La categoria solicitada no está en el sistema")                       
+                    
                     elif option1_4 == 3:
-                        print("-- Eliminar la copia --")
-                        id_copia = int(input("Identificador de la copia: "))
-                        copia_encontrada = False
-                        for ident in listaCopias:
-                            if ident.identificador == id_copia:
-                                listaCopias.remove(ident)
-                                copia_encontrada = True
-                                print("Copia eliminada")
+                        print("-- Modifica una categoria --")
+                        id_cat = input("Identificador de la categoria: ")
+                        categoria_encontrada = False
+                        for ident in listaCategorias:
+                            if ident.id == id_cat:
+                                nuevo_id = input("Nuevo identificador: ")
+                                nuevo_nombre = input("Nuevo nombre: ")
+                                nueva_desc = input("Nueva descripcion: ")
+                                ident.modificarDatos(nuevo_id, nuevo_nombre, nueva_desc)
+                                categoria_encontrada = True
+                                print("Categoria modificada")
                                 break
-                            else:
-                                print("La copia solicitada no está en el sistema")                       
+                        else:
+                            print("La categoria solicitada no está en el sistema")
 
                     elif option1_4 == 4:
+                        print("-- Eliminar la copia --")
+                        id_cat = input("Identificador de la categoria: ")
+                        categoria_encontrada = False
+                        for ident in listaCategorias:
+                            if ident.id == id_cat:
+                                listaCategorias.remove(ident)
+                                categoria_encontrada = True
+                                print("Categoria eliminada")
+                                break
+                        else:
+                            print("La categoria solicitada no está en el sistema")                       
+
+                    elif option1_4 == 5:
                         print("...")
                         break
                     else:
@@ -453,32 +514,51 @@ while True:
 
                     if option1_5 == 1:
                         print("-- Registra autor --")
-                        id_autor = int(input("Ingresa identificador del autor: "))
-                        nombre = str(input("Ingresa nombre del autor: "))
-                        nacionalidad = str(input("Ingresa la nacionalidad del autor: "))
-                        fecha_nacimiento = str(input("Ingresa la fecha de nacimiento del autor: "))
+                        id_autor = input("Ingresa identificador del autor: ")
+                        nombre = input("Ingresa nombre del autor: ")
+                        nacionalidad = input("Ingresa la nacionalidad del autor: ")
+                        fecha_nacimiento = input("Ingresa la fecha de nacimiento del autor: ")
                         autor = Autor(id_autor, nombre, nacionalidad, fecha_nacimiento)
                         listaAutores.append(autor)
 
                     elif option1_5 == 2:
                         print("-- Busca autor --")
-                        id_autor = int(input("Identificador del autor: "))
-                        for ident in listaAutores:
-                            if ident.id_autor == id_autor:
-                                ident.verAutor()
-                                break
+                        print("1. Por identificador")
+                        print("2. Por nombre")
+                        opcion_busq = int(input("Opcion: "))
+                        
+                        if opcion_busq == 1:
+                            id_autor = input("Identificador del autor: ")
+                            for ident in listaAutores:
+                                if ident.id_autor == id_autor:
+                                    ident.verAutor()
+                                    break
+                            else:
+                                print("El autor solicitado no está en el sistema")
+                        
+                        elif opcion_busq == 2:
+                            nombre_autor = input("Nombre del autor: ")
+                            for ident in listaAutores:
+                                if ident.nombre == nombre_autor:
+                                    ident.verAutor()
+                                    break
                             else:
                                 print("El autor solicitado no está en el sistema")
 
                     elif option1_5 == 3:
                         print("-- Modifica detalles de autor --")
-                        id_autor = int(input("Identificador del autor: "))
+                        id_autor = input("Identificador del autor: ")
                         for ident in listaAutores:
                             if ident.id_autor == id_autor:
-                                ident.modificarDatos()
+                                nuevo_id = input("Nuevo identificador: ")
+                                nuevo_nombre = input("Nuevo nombre: ")
+                                nueva_nacionalidad = input("Nueva nacionalidad: ")
+                                nueva_fechaNac = input("Nueva fecha de nacimiento: ")
+                                ident.modificarDatos(nuevo_id, nuevo_nombre, nueva_nacionalidad, nueva_fechaNac)
+                                print("Autor modificado")
                                 break
-                            else:
-                                print("El autor solicitado no está en el sistema")
+                        else:
+                            print("El autor solicitado no está en el sistema")
 
                     elif option1_5 == 4:
                         print("-- Asociar libro a autor --")
@@ -528,14 +608,13 @@ while True:
                         
                     elif option2_1 == 2:
                         print("-- Busca Bibliotecario --")
-                        
                         id_biblio = int(input("Identificador Bibliotecario: "))
                         for ident in listaBibliotecarios:
                             if ident.id == id_biblio:
                                 ident.verBibliotecario()
                                 break
-                            else:
-                                print("El Bibliotecario solicitado no está en el sistema")
+                        else:
+                            print("El Bibliotecario solicitado no está en el sistema")
 
                     elif option2_1 == 3:
                         print("-- Modifica detalles de un bibliotecario --")
@@ -550,8 +629,8 @@ while True:
                                 ident.modificarDatos(nombre, id, telefono, direccion)
                                 print("Bibliotecario modificado con éxito!")   
                                 break
-                            else:
-                                print("El bibliotecario solicitado no está en el sistema")
+                        else:
+                            print("El bibliotecario solicitado no está en el sistema")
                         
                     elif option2_1 == 4:
                         print("-- Elimina un bibliotecario --")
@@ -560,11 +639,11 @@ while True:
                             found = False
                             if ident.id == id_biblio:
                                 listaBibliotecarios.remove(ident)
-                                print("El bibliotecario se ha eliminadod del sistema")
+                                print("El bibliotecario se ha eliminado del sistema")
                                 found  = True
                                 break
-                        if found  == False:
-                                print("El bibliotecario solicitado no está en el sistema")
+                        if found == False:
+                            print("El bibliotecario solicitado no está en el sistema")
 
                     elif option2_1 == 5:
                         print("...")
@@ -594,8 +673,8 @@ while True:
                             if ident.id == id_lector:
                                 ident.verLector()
                                 break
-                            else:
-                                print("El lector solicitado no está en el sistema")
+                        else:
+                            print("El lector solicitado no está en el sistema")
 
                     elif option2_2 == 3:
                         print("-- Modifica detalles de un lector --")
@@ -611,8 +690,8 @@ while True:
                                 ident.modificarDatos(nombre, id, telefono, direccion, estado)
                                 print("Lector modificado con éxito!")   
                                 break
-                            else:
-                                print("El lector solicitado no está en el sistema")
+                        else:
+                            print("El lector solicitado no está en el sistema")
 
                     elif option2_2 == 4:
                         id_lector = int(input("Identificador del lector a habilitar: "))
@@ -621,8 +700,8 @@ while True:
                                 ident.setEstado("Habilitado")
                                 print("Lector habilitado con éxito!")
                                 break
-                            else:
-                                print("Lector no encontrado")
+                        else:
+                            print("El lector solicitado no está en el sistema")
 
                     elif option2_2 == 5:
                         id_lector = int(input("Identificador del lector a inhabilitar: "))
@@ -631,8 +710,8 @@ while True:
                                 ident.setEstado("Inhabilitado")
                                 print("Lector inhabilitado con éxito!")
                                 break
-                            else:
-                                print("Lector no encontrado")
+                        else:
+                            print("El lector solicitado no está en el sistema")
 
                     elif option2_2 == 6:
                         print("...")
@@ -645,9 +724,6 @@ while True:
                         break
             else:
                 print("Opcion invalida, intente nuevamente")
-
-
-
 
     elif main_option == 3:
         while True:

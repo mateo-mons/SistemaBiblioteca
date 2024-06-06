@@ -56,7 +56,9 @@ class Autor:
         if libro not in self.libros:
             self.libros.append(libro)
 
-    def modificarDatos(self, nombre=None, nacionalidad=None, fecha_nac=None):
+    def modificarDatos(self, id_autor=None, nombre=None, nacionalidad=None, fecha_nac=None):
+        if id_autor:
+            self.setIdAutor(id_autor)
         if nombre:
             self.setNombre(nombre)
         if nacionalidad:
