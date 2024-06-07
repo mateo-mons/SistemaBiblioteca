@@ -97,11 +97,9 @@ class Libro(Producto):
     def agregar_copia(self, copia):
         self.copias.append(copia)
 
-    def buscar_copia_disponible(self):
-        for copia in self.copias:
-            if copia.estado == "En biblioteca":
-                return copia
-        return None
+    def buscar_copias_disponibles(self):
+        copias_disponibles = [copia for copia in self.copias if copia.estado == "En biblioteca"]
+        return copias_disponibles
 
     def modificarDatos(self, titulo=None, isbn=None, edicion=None, ano_publicacion=None, editorial=None, estado=None, idioma=None, copias=None, categoria=None, autores=None):
         if titulo:

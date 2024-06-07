@@ -97,8 +97,9 @@ def menu_administracion_transacciones():
 def menu_admi_prestamos():
     print("-- Transacciones --")
     print("1. Solicitud de prestamo")
-    print("2. Devolucion de prestamo")
-    print("3. Volver")
+    print("2. Buscar prestamo")
+    print("3. Devolucion de prestamo")
+    print("4. Volver")
 
 # 3.2 #
 def menu_admi_multas():

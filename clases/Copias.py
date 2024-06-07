@@ -12,7 +12,7 @@ class Copia:
 
     def verCopia(self):
         print("-- Detalles --")
-        print(f"Copia ID: {self.identificador}\nNombre: {self.nombre_libro}\n Estado: {self.estado}\nISBN: {self.isbn}")
+        print(f"Copia ID: {self.identificador}\nNombre: {self.nombre_libro}\nEstado: {self.estado}\nISBN: {self.isbn}")
     
     #--------------------------------------------------------------- getter --------------------------------------------------------------
  

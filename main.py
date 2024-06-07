@@ -56,9 +56,10 @@ libro3 = Libro("Cien años de soledad", "9788437615030", "Edición conmemorativa
 listaLibros.append(libro3)
 autor3.libros.append(libro3)
 
+
 autor4 = Autor("3","George Orwell", "Británica", "25 de junio de 1903")
 listaAutores.append(autor4)
-libro4 = Libro("1984", "9780141036144", "Reedición", 1949, "Penguin Books", "Usado", "Inglés", 60, categoria3.getNombre(), [autor4])
+libro4 = Libro("1984", "9780141036144", "Reedición", 1949, "Penguin Books", "Usado", "Inglés", 10, categoria3.getNombre(), [autor4])
 listaLibros.append(libro4)
 autor4.libros.append(libro4)
 
@@ -117,6 +118,9 @@ lector3 = Lector("Manuela Garcia", "12", "321323443", "Calle quien sabe # 123", 
 listaLectores.append(lector1)
 listaLectores.append(lector2)
 listaLectores.append(lector3)
+
+prestamo1 = Prestamo("1", "1984", "2", lector1.getNombre(), 3, 24-7-6, 24-10-6)
+listaPrestamos.append(prestamo1)
 
 
 # MAIN PROGRAM #
@@ -310,6 +314,7 @@ while True:
                         libro = factory.crear_libro(titulo, isbn, edicion, ano_publicacion, editorial, estado, idioma, num_copias, categoria, [autor])
                         listaLibros.append(libro)
                         autor.agregarLibro(libro)
+                        print("Libro registrado al sistema")
                 
                     elif option1_3 == 2:
                         print("\n")
@@ -720,15 +725,26 @@ while True:
                         libro = input("Título del libro a buscar: ")
                         for ident in listaLibros:
                             if ident.titulo == libro:
-                                copias_disponibles = libro.buscar_copia_disponible()
+                                copias_disponibles = ident.buscar_copias_disponibles()
                                 if copias_disponibles:
                                     print("Copias disponibles:")
                                     for i, copia in enumerate(copias_disponibles, 1):
-                                        print(f"{i}. {copia.mostrar_detalles()}")
+                                        print(f"{i}. {copia.verCopia()}")
                                     opcion_copia = input("Seleccione el número de copia que desea prestar: ")
                                     try:
                                         indice_copia = int(opcion_copia) - 1
                                         copia_seleccionada = copias_disponibles[indice_copia]
+                                        id_prestamo = input("Ingrese identificador del prestamo: ")
+                                        lector = input("Ingrese id del lector: ")
+                                        dias_prest = int(input("Ingrese el numero de dias de prestamo: "))
+                                        fecha_prestamo =input("Ingrese fecha de prestamo (YYYY-MM-DD): ")
+                                        fecha_entrega = input("Ingrese fecha de entrega (YYYY-MM-DD): ")
+                                        prestamo = Prestamo(id_prestamo, libro, copia_seleccionada, lector, dias_prest, fecha_prestamo, fecha_entrega)
+                                        if prestamo:
+                                            print("Prestamo realizado")
+                                        else:
+                                            print("Fallo al registrar prestamo")
+
                                         # Código para registrar préstamo de la copia seleccionada
                                     except ValueError:
                                         print("Entrada inválida. Introduzca un número válido.")
@@ -736,10 +752,20 @@ while True:
                                         print("Número de copia seleccionada fuera de rango.")
                                 else:
                                     print("No hay copias disponibles en la biblioteca.")
-                        else:
-                            print("Libro no encontrado.")
-
+                        '''else:
+                            print("Libro no encontrado.")'''
+                    
                     elif option3_1 == 2:
+                        print("-- Busca un prestamo --")
+                        id_pres = input("Ingrese identificador del prestamo: ")
+                        for ident in listaPrestamos:
+                            if ident.id_prestamo == id_pres:
+                                ident.verPrestamo()
+                                break
+                        else:
+                            print("El prestamo solicitado no está en el sistema")
+
+                    elif option3_1 == 3:
                         print("-- Devolver un prestamo --")
                         id_lector = input("Ingrese el ID del lector: ")
                         lector = next((l for l in listaLectores if l.getId() == id_lector), None)
@@ -771,6 +797,10 @@ while True:
 
                         lector.removerLibroPrestado(libro)
                         libro.setEstado("disponible")
+                    
+                    elif option3_1 == 4:
+                        print("...")
+                        break
                                                 
                     else:
                         print("Opcion invalida, intente nuevamente")

@@ -1,11 +1,14 @@
 from datetime import datetime, timedelta
+from clases.Copias import *
+from clases.Lector import *
 
 class Prestamo:
 
-    def __init__(self, id_prestamo, id_libro, id_lector, dias_prestamo, fecha_prestamo, fecha_entrega):
+    def __init__(self, id_prestamo, nombre_libro, id_copia, lector, dias_prestamo, fecha_prestamo, fecha_entrega):
         self.id_prestamo = id_prestamo
-        self.id_libro = id_libro
-        self.id_lector = id_lector
+        self.nombre_libro = nombre_libro
+        self.id_copia = id_copia
+        self.lector = lector
         self.dias_prestamo = dias_prestamo
         self.fecha_prestamo = fecha_prestamo
         self.fecha_entrega = fecha_entrega
@@ -17,12 +20,15 @@ class Prestamo:
 
     def verPrestamo(self):
         print("-- Detalles --")
-        print(f"ID prestamo: {self.id_prestamo}\nID libro: {self.id_libro}\nID lector: {self.id_lector}\nDias prestamo: {self.dias_prestamo}\nFecha del prestamo: {self.fecha_prestamo}\nFecha de entrega: {self.fecha_entrega}")
+        print(f"ID prestamo: {self.id_prestamo}\nLibro: {self.nombre_libro}\nID copia: {self.id_copia}\nID lector: {self.lector}\nDias prestamo: {self.dias_prestamo}\nFecha del prestamo: {self.fecha_prestamo}\nFecha de entrega: {self.fecha_entrega}")
     
     #--------------------------------------------------------------- getter --------------------------------------------------------------
  
     def getIdPrestamo(self):
         return self.id_prestamo
+    
+    def getNombreLibro(self):
+        return self.nombre_libro
     
     def getIdLibro(self):
         return self.id_libro
