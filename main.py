@@ -729,7 +729,7 @@ while True:
                                 if copias_disponibles:
                                     print("Copias disponibles:")
                                     for i, copia in enumerate(copias_disponibles, 1):
-                                        print(f"{i}. {copia.verCopia()}")
+                                        print(f"{i}. {copia-{i}.verCopia()}")
                                     opcion_copia = input("Seleccione el número de copia que desea prestar: ")
                                     try:
                                         indice_copia = int(opcion_copia) - 1
@@ -740,6 +740,7 @@ while True:
                                         fecha_prestamo =input("Ingrese fecha de prestamo (YYYY-MM-DD): ")
                                         fecha_entrega = input("Ingrese fecha de entrega (YYYY-MM-DD): ")
                                         prestamo = Prestamo(id_prestamo, libro, copia_seleccionada, lector, dias_prest, fecha_prestamo, fecha_entrega)
+                                        listaPrestamos.append(prestamo)
                                         if prestamo:
                                             print("Prestamo realizado")
                                         else:
